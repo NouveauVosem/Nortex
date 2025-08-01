@@ -38,9 +38,9 @@ export const products = [
     id: 3,
     name: 'Подавач зварювального дроту',
     img: [
-        '/assets/img/products/wireHolder-1.jpg',
-        '/assets/img/products/wireHolder-2.jpg',
-        '/assets/img/products/wireHolder-1.jpg'
+        './assets/img/products/wireHolder-1.jpg',
+        './assets/img/products/wireHolder-2.jpg',
+        './assets/img/products/wireHolder-1.jpg'
       ],
     power: '230',
     efficiency: '80',
@@ -50,9 +50,9 @@ export const products = [
     id: 4,
     name: 'Плазморіз інверторний Nortex CUT-80 (80А)',
     img:
-     ['/assets/img/products/cut-80-1.jpg',
-      '/assets/img/products/cut-80-2.jpg',
-      '/assets/img/products/cut-80-3.jpg'],
+     ['./assets/img/products/cut-80-1.jpg',
+      './assets/img/products/cut-80-2.jpg',
+      './assets/img/products/cut-80-3.jpg'],
     power: '230',
     efficiency: '80',
     electrodeDiameterMax: '5'
@@ -60,7 +60,7 @@ export const products = [
    {
     id: 5,
     name: 'Аргонодуговий зварювальний апарат TIG200P AC/DC',
-    img:['/assets/img/products/tig200p-1.jpg'],
+    img:['./assets/img/products/tig200p-1.jpg'],
     power: '230',
     efficiency: '80',
     electrodeDiameterMax: '5'
