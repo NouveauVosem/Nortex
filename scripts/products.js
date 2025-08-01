@@ -29,7 +29,7 @@ export const products = [
   {
     id: 2,
     name: 'Зварювальний апарат MIG 250',
-    img: ['/assets/img/products/mig250-1.jpg'],
+    img: ['./assets/img/products/mig250-1.jpg'],
     power: '230',
     efficiency: '80',
     electrodeDiameterMax: '5'
