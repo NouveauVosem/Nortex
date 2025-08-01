@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nortex</title>
+  <link rel="stylesheet" type="text/css" href="./styles/styles.css">
+  <link rel="stylesheet" type="text/css" href="./styles/product.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+  <div id="app">
+    
+    <header>
+      <div class="header-top">
+        <a>+4 000 00 00 00</a><a>+4 000 00 00 00</a>
+         <div class="language-container">
+          <button class="btn-light">укр</button>
+          <button class="btn-light">eng</button>
+      </div>
+      </div>
+     
+      <div class="header-content">
+        
+        <div class="header-left">
+          <div class="logo">
+            <a href="./index.html"><img src="assets/img/nortex-logo-orange.svg"/></a>
+          </div>
+        </div>
+        <div class="header-right">
+          <nav class="navbar-container">
+              <li class="navbar-item"><a href="./gallery.html">Галерея</a></li>
+              <li class="navbar-item"><a href="#">Про нас</a></li>
+              <li class="navbar-item"><a href="./contacts.html">Контакти</a></li>
+          </nav>
+          <button class="btn-orange">Замовити</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="navigation-feed">Крихти > Крихти</section>     
+
+      <section class="product-section" id="product">
+
+        
+
+
+
+      </section>
+
+        <section class="contact-section">
+          <div clas="contact-container">
+          <div class="contact-title">
+            <h3>Звязок з нами</h3>
+            <p>Залишіть нам свої контактні данні, та ми звяжемося з вами в короткі терміни</p>
+          </div>
+          <form action="https://formsubmit.co/nouveauvosem@gmail.com" method="POST" class="contact-input-form">
+            <input class="contact-input" name="name" type="text" placeholder="Iм'я">
+            <input class="contact-input" name="email" type="text" placeholder="Email">
+            <input class="contact-input" name="subject" type="text" placeholder="Номер телефону">
+            <textarea name="message" class="contact-textarea" type="text" placeholder="Коментар"></textarea>
+            <p class="small-text">*інформація про правила конфеденційності, та не передання особистої інформації третім особaм</p>
+            <button class="btn-orange">Відправити</button>
+          </form>
+          </div>
+        </section>
+        
+    </main>
+    
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="./assets/img/nortex-logo-white.svg" />
+        </div>
+        <div class="footer-assortment">
+          <h4>Асортимент</h4>
+          <p class="footer-text-white">Зварювальний апарат D-01е</p>
+          <p class="footer-text-white">Зварювальний апарат D-210w</p>
+          <p class="footer-text-white">Зварювальний апарат D-212</p>
+        </div>
+        <div class="footer-info">
+          <h4>Інформація</h4>
+          <p class="footer-text-white">Контакти</p>
+          <p class="footer-text-white">Про нас</p>
+        </div>
+        <div class="footer-contacts">
+          <h4>Контакти</h4>
+          <p class="footer-text-white">nortex@gmail.com</p>
+          <p class="footer-text-white">+4 000 00 00 00</p>
+          <p class="footer-text-white">+4 000 00 00 00</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+  function toggleCollapse(element) {
+    element.classList.toggle("active");
+  }
+
+  function changeImage(thumb) {
+    const mainImage = document.getElementById('mainImage');
+    mainImage.src = thumb.src;
+  }
+
+  function showTab(tabId,el) {
+
+    document.getElementById('tab1').style.display = 'none';
+    document.getElementById('tab2').style.display = 'none';
+
+    document.getElementById(tabId).style.display = 'flex';
+
+    const allTabs = document.querySelectorAll('.product-details-switch h2');
+      allTabs.forEach(tab => tab.classList.remove('active'));
+
+      el.classList.add('active');
+  }
+  
+  window.onload = () => {
+  document.querySelector('.product-details-switch h2').click();
+};
+
+
+  </script>  
+  <script type="module" src="./scripts/index.js"></script>
+ 
+ <script type="module">
+    // 1. Get ID from URL
+
+    import { products } from "/scripts/products.js";
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    
+
+    const product = products.find((x) => x.id == id)
+    // 2. Fetch product data (simulate with an object or fetch from API)
+    async function loadProduct() {
+       
+      console.log(product);
+
+      
+      
+      // 3. Render data
+      const container = document.getElementById('product');
+      container.innerHTML = ` 
+        <div class="product-name">
+          <h2>${product.name}</h2>
+        </div>
+
+        <div class="product-wrap">
+
+          <div class="product-gallery">
+            <div class="product-gallery-main">
+              <img id="mainImage" src="${product.img[0]}">
+            </div>
+            <div class="product-gallery-thumbs">
+              
+            </div>
+          </div>
+
+          <div class="product-buy-wrap">
+            
+            <div class="product-price-row">
+              <div class="product-price">
+                <a><span>1 890 </span>грн</a>
+              </div>
+              <a href="https://buy.stripe.com/7sY3cu0XO0aLa9v7kD3wQ00" class="product-buy-btn">Купити</a>
+            </div>
+
+            <div class="product-short-row">
+              <a>
+                  Максимальний робочий струм: 160 А (MIG), 140 А (MMA)<br>
+                  Робоча напруга: 230 В (1 фаза)<br>
+                  Діаметр електродів: 1.6 – 4.0 мм<br>
+                  Діаметр зварювального дроту: 0.8 – 1.0 мм<br>
+              </a>
+            </div>
+
+            <div class="product-phone-row">
+              <div class="product-phone-icon">
+                <img src="assets/img/icon-phone-girl.svg">
+              </div>
+              <div class="product-phone-text">
+                <a>
+                  Придбати в один клік<br>
+                  <span>Введіть номер телефону, і ми передзвонимо</span>
+                </a>
+              </div>
+              
+            </div>
+
+            <div class="phone-input-row">
+            <input class="phone-buy-input" name="subject" type="text" placeholder="Номер телефону">
+            <div class="phone-buy-btn">купити</div>
+            </div>
+
+            <div class="roll-box-row">  
+                <div class="roll-box-line" onclick="toggleCollapse(this)">
+                <div class="roll-box-line-head">
+                <img src="assets/img/icon-delivery-truck.svg">              
+                <a>Способи доставки</a>
+                <img class="icon-arrow" src="assets/img/icon-arrow.svg" ><br>
+                </div>
+                <div class="roll-box-collapse" >
+                Самовывоз из отделения "Новой Почты". Тариф перевозчика.<br>
+                Курьер Новой Почты<br>
+                Самовывоз из магазина<br>
+                </div>
+              </div>
+              <div class="roll-box-line" onclick="toggleCollapse(this)">
+                <div class="roll-box-line-head">
+                <img src="assets/img/icon-card.svg">              
+                <a>Способи оплати</a>
+                <img class="icon-arrow" src="assets/img/icon-arrow.svg" ><br>
+                </div>
+                <div class="roll-box-collapse" >
+                  Оплата при отриманні<br> 
+                  Онлайн карткою Visa/MasterCard<br> 
+                  Безготівковий розрахунок
+                </div>
+              </div>  
+            </div>
+            
+          </div>
+
+        </div>
+        
+        <div class="product-details-wrap">
+          <div class="product-details-switch">
+            <h2 onclick="showTab('tab1', this)">Повний опис</h2>
+            <h2 onclick="showTab('tab2', this)">Характеристики</h2>
+            <h2 onclick="showTab('tab2', this)">Відгуки (0)</h2>
+            <div class="underline"></div>
+          </div>
+
+          <div id="tab1" class="product-details">
+            <a>
+              <b>MIG 250P</b> — це інверторний напівавтоматичний зварювальний апарат від компанії Nortex, 
+              призначений для MIG/MAG та MMA зварювання. 
+              Підходить як для професійного використання, так і для побутових потреб. 
+              Завдяки цифровому дисплею та простому інтерфейсу забезпечується зручне керування параметрами зварювання. <br><br>
+
+              Цей зварювальний апарат виготовлений з використанням сучасної інверторної технології. 
+              Завдяки високоефективним компонентам IGBT та технології PWM, 
+              інвертор перетворює випрямлену змінну напругу 50/60 Гц на високочастотну напругу 20 кГц, 
+              а потім знижує та знову випрямляє її для забезпечення стабільного зварювання.<br><br>
+
+              Панель управління проста і зрозуміла навіть зварнику початківцю. На ній встановлено цифровий дисплей для індикації параметрів зварювання і кодів режимів роботи. 
+              Вибір режимів роботи здійснюється кнопками, а встановлення параметрів зварювання - поворотною рукояткою. Будований захист від перевантажень. 
+              Система примусового охолодження забезпечує відведення тепла зсередини апарату при мінімальному проходженні зовнішнього повітря над вузлами з тонкою електронікою. 
+              Така конструкція дозволяє організувати ефективне охолодження і при цьому продовжити термін роботи обладнання. Живлення апарату від побутової мережі 230 В (1 фаза).
+            </a>
+            
+            
+              <p><b>Стандартний функціонал:</b></p>
+              <ul class="box-bullets">
+                <li>ручне дугове зварювання (MMA)</li>
+                <li>дугове зварювання плавлячим електродом (MIG/MAG)</li>
+                <li>Потужність 250А</li>
+              </ul>
+              <p><b>Основні переваги обладнання:</b></p>
+              <ul class="box-bullets">
+                <li>Інверторна технологія IGBT, стабільне керування струмом, висока якість зварювання та надійна робота;</li>
+                <li>Зворотній зв'язок по замкненому колу, постійна вихідна напруга, широкий діапазон вхідної напруги (±15%);</li>
+                <li>Керування за допомогою електронного реактора — стабільна дуга, мінімальне розбризкування, глибоке проварювання та якісний зварювальний шов;</li>
+                <li>Повільна подача дроту під час запалювання дуги, автоматичне видалення кульки з кінця дроту після зварювання, легкий повторний запуск;</li>
+                <li>Підходить для зварювання деталей товщиною від 0,8 мм;</li>
+                <li>Компактний та міцний корпус з якісною вентиляцією</li>
+              </ul>
+              <p><b>В комплекті:</b></p>
+              <ul class="box-bullets">
+                <li>апарат Nortex MIG 250P (Z25123) - 1 шт.</li>
+                <li>інструкція з експлуатації (паспорт) - 1 шт.</li>
+              </ul>
+            
+
+          </div>
+
+          <div id="tab2" class="product-perameters">
+            <p class="product-parameters-grey">Модель: <b>MIG 250P</b></p>
+            <p class="product-parameters-white">Тип зварювання: <b>MIG/MAG, MMA</b></p>
+            <p class="product-parameters-grey">Діапазон зварювального струму (MIG): <b>60A / 17V – 160A / 22V</b></p>
+            <p class="product-parameters-white">Живлення: <b>220 В / 50–60 Гц</b></p>
+            <p class="product-parameters-grey">Діапазон зварювального струму (MMA): <b>30A / 21.2V – 140A / 25.6V</b></p>
+            <p class="product-parameters-white">Робочий цикл:</b><br>
+
+              MIG: <b>60% при 160A, 100% при 124A</b><br>
+
+              MMA: <b>60% при 140A, 100% при 119A</b></p>
+            <p class="product-parameters-grey">Максимальний струм: <b>28A</b></p>
+            <p class="product-parameters-white">Клас захисту: <b>IP21S</b></p>
+            <p class="product-parameters-grey">Ізоляція: <b>F</b></p>
+            <p class="product-parameters-white">Вихідна напруга холостого ходу: <b>56V</b></p>
+            <p class="product-parameters-grey">Підключення пальника: <b>стандартний євророз'єм</b></p>
+            <p class="product-parameters-white">Додатково: <b>цифровий дисплей, кнопка перемикання режимів, розетки AC 36V</b></p>
+
+          </div>
+          
+        </div>`;
+    }
+   
+    loadProduct();
+    
+    const imageContainer = document.querySelector('.product-gallery-thumbs')
+    
+    let imgs ='';
+
+    product.img.forEach(x=>{
+      imgs+= `<img src=${x} onclick="changeImage(this)">`
+    })
+    imageContainer.innerHTML = imgs;
+    // <img src="/assets/img/product-1.jpg" onclick="changeImage(this)">
+
+      // 📌 2. Динамические характеристики
+  const tab2 = document.getElementById("tab2");
+  tab2.innerHTML = ""; // очищаем (если шаблон в HTML остался)
+  product.parameters.forEach((param, index) => {
+    const p = document.createElement("p");
+    p.className = index % 2 === 0 ? "product-parameters-grey" : "product-parameters-white";
+    p.innerHTML = `${param.label}: <b>${param.value}</b>`;
+    tab2.appendChild(p);
+  });
+
+    
+  </script>
+</body>
+</html>
