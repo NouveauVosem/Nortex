@@ -266,11 +266,11 @@
   
 }
 
-.box-bullets {
+/* .box-bullets {
   list-style: none;
-  padding-left: 30px;
-  
+  padding-left: 30px;  
 }
+
 
 .box-bullets li::before {
   content: '';
@@ -281,7 +281,29 @@
   border-radius: 0%;
   margin-right: 24px;
   margin-left: -1em;
+} */
+
+ .box-bullets {
+  list-style: none;
+  padding-left: 20px;
 }
+
+.box-bullets li {
+  position: relative;
+  padding-left: 34px;
+  padding-bottom:20px; 
+}
+
+.box-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45em;  
+  width: 8px;
+  height: 8px;
+  background-color: #ff5526;
+  border-radius: 0%;
+} 
 
 .product-perameters {
   display:flex;
@@ -364,5 +386,128 @@
   opacity: 1;
 }
 
+/* миниатюры гпт */
 
+/* Контейнер галереи */
+.product-gallery-thumbs {
+  display: flex;
+  align-items: center;
+  /* gap: 5px; */
+}
 
+/* Кнопки стрелок */
+.thumb-arrow {
+  display:none;
+  background: #f0f0f0;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.thumb-arrow:hover {
+  background: #ddd;
+}
+
+/* Обертка для скролла миниатюр */
+.thumbs-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 5px;
+  scroll-behavior: smooth; /* плавная прокрутка */
+  flex: 1; /* занимает оставшееся место между кнопками */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+
+.thumbs-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Миниатюры */
+.thumb-item {
+  width: 60px;
+  height: 120px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: border 0.2s;
+}
+
+.thumb-item.active {
+  border-color: #DC4B22 !important;
+}
+
+.product-gallery-main {
+  position: relative;
+}
+
+.gallery-arrow {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 20px;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+  border-radius: 40px !important ;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-arrow:hover {
+  opacity: 1;
+}
+
+.gallery-arrow.left {
+  left: 20px;
+}
+
+.gallery-arrow.right {
+  right: 20px;
+}
+
+#mainImage {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+
+#mainImage.fade-out {
+  opacity: 0;
+}
+
+.product-gallery-thumbs {
+  
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.thumbs-scroll {
+  display: flex;
+  overflow: hidden;
+  flex: 1;
+}
+
+.thumb-item {
+  height: 120px; /* фиксированная высота */
+  margin-right: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+  border-radius: 0;
+}
+
+.thumb-item.active {
+  /* transform: scale(1.1); */
+  opacity: 1;
+  border: 1px solid;
+}

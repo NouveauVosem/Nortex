@@ -1,5 +1,6 @@
 * {
   font-family: montserrat, sans-serif;
+  box-sizing: border-box;
 }
 
 .small-text {
@@ -53,14 +54,11 @@ h5 {
   
 
 body {
-  /* width: 100vv;
-  display:flex;
-  justify-content: center; */
   margin:0;
 }
 
 #app {
- /* width:1280px; */
+ width:1280px;
  display: flex;
  width: 100vw;
  flex-direction: column;
@@ -69,20 +67,18 @@ body {
 }
 
 main {
-  margin-top:20px;
   display:flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  margin-top:23px;
 }
 
-.section-hero {
-  margin-top:10px;
-}
-
-.navigation-feed, 
-.section-hero, 
-.section-main {
-  width:1280px;
+.navigation-feed {
+  width: 1280px ;
+  align-self: center;
+  margin-top: 20px !important;
+  margin-bottom:5px !important;
 }
 
 header {
@@ -92,9 +88,7 @@ header {
   height: 70px;
   display:flex;
   flex-direction: column;
-  /* margin-top:8px; */
   width:1280px;
-  /* background-color: red; */
 }
 
 .header-top {
@@ -111,17 +105,21 @@ header {
   padding-left:40px;
 }
 
-.language-container {
-  /* display:flex;
-  justify-content: right; */
-  /* width: 100%; */
-  /* padding-bottom: 10px;  */
-  align-content:center;
+.header-phone {
+  display:flex;
+}
 
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw; */
+.header-phone a{
+  text-decoration: none;
+  color: #77777a;
+}
+
+.header-phone a:hover{
+  color:#282922;
+}
+
+.language-container {
+  align-content:center;
 }
 
 .header-content {
@@ -179,6 +177,13 @@ header {
   border:none;
   /* border-radius: 5px; */
   cursor: pointer;
+  display: flex;
+  align-items: center;      /* Вертикальное центрирование */
+  justify-content: center; 
+}
+
+.btn-orange:hover {
+  background-color: #ee562b;
 }
 
 .btn-light {
@@ -192,90 +197,6 @@ header {
 
 .btn-light:hover {
   background-color:#F8F7FC;
-}
-
-.navigation-feed {
-  margin-top: 20px;
-  /* padding-top:20px; */
-  margin-bottom:5px;
-}
-
-.video-box {
-  width: 1280px; /* Set the desired width of the box */
-  height: 351px; /* Set the desired height of the box */
-  border: 1px solid #a7a7a7; /* Optional: Add a border to the box */
-  border-radius: 10px; /* Optional: Round the corners */
-  overflow: hidden; /* Ensures the video does not exceed the box's boundaries */
-  position: relative; /* Ensures proper alignment */
-  background-color: #b6b6b6; /* Optional: Set a background color for the box */
-}
-
-.video-box video {
-  width: 100%; /* Makes the video fill the width of the box */
-  height: 100%; /* Makes the video fill the height of the box */
-  object-fit: cover; /* Ensures the video scales to cover the box proportionally */
-  position: absolute; /* Aligns the video perfectly within the box */
-  top: 0;
-  left: 0;
-}
-
-.section-main {
-  /* width: 100%; */
-  /* height: 70px; */
-  /* display:flex; */
-  margin-top:20px;
-  /* justify-content: center; */
-  /* background-color: red; */
-}
-
-.title {
-  display:flex;
-  justify-content: center;
-}
-
-.slider-container {
-  /* width: 400px; */
-  align-content: left;
-  /* margin-top:10px; */
-}
-
-.slider-list {
-  max-height: 480px;
-}
-
-.slider-item {
-  width:275px;
-  display:flex;
-  align-items: center;
-  cursor: pointer;
-  margin:10px 0;
-  padding:16px 12px;
-  border-radius: 8px;
-}
-
-.slider-item:hover {
-  background-color:#F8F7FC;
-}
-
-.triangle-container {
-  width:30px;
-  display:flex;
-  justify-content: right;
-  margin:5px;
-}
-
-.slider-item p {
-  flex-grow: 1; /* This allows the text to take up the remaining space */
-  margin: 0; /* Removes any default margin around the paragraph */
-}
-
-.slider-item img {
-  width:8px;
-  height:8px;
-}
-
-.content-container {
-  display:flex;
 }
 
 .content-box {
@@ -295,7 +216,6 @@ header {
 .contact-section {
   background-color:#F8F7FC;
   height: 650px;
-  
   left:0;
   width:100vw;
   display:flex;
@@ -327,8 +247,7 @@ header {
   box-shadow:0 4px 20px rgba(0, 0, 0, 0.1);
   text-decoration:none;
   outline: none;
-  padding:0 18px;
-  
+  padding:0 18px !important;
 }
 
 .comment {
@@ -356,18 +275,21 @@ header {
  */
 }
 
+
+
 footer {
   display:flex;
   flex-direction: column;
   align-items: center;
-  height: 383px !important;
+  /* height: 343px !important; */
   width: 100%;
   background-color: #282922;
   bottom:0px;
+  padding-bottom:60px;
 }
 
 .footer-content {
-  margin-top:90px;
+  margin-top:60px;
   width:1280px;
   display:flex;
   flex-direction: row;
@@ -382,53 +304,124 @@ footer {
 .footer-text-white {
   color:#F8F7FC;
   font-size:18px;
+  margin:0;
+  /* margin-top:25px; */
+  margin-bottom:25px !important;
+  display:flex;
+  flex-direction: column;
+}
+
+.footer-text-white a{
+    margin-bottom:25px !important;
 }
 
 .footer-assortment,
 .footer-info,
 .footer-contacts {
-  /* display:flex;
+  display:flex;
   flex-direction: column;
-  justify-content: flex-start; */
+  justify-content: flex-start;
   padding-top:0;
   margin-top:0;
   padding-left:40px;
   border-left:1px solid #F8F7FC;
+  padding-top:10px;
+  padding-bottom:10px;
 }
 
 .footer-content p{
-  margin-top:30px;
+  /* margin-top:25px; */
 }
 
-.section-products .product-list {
+.footer-content a{
+  color:#F8F7FC;
+  font-size:18px;
+  margin:0;
+  /* margin-top:25px;  */
+  text-decoration: none;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 0.08em;;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+}
+
+.navigation-feed a{
+  font-size: 14px;
+  cursor: pointer;
+  text-underline-offset: 4px;
+  text-decoration: none;
+  color:#282922
+}
+
+.navigation-feed a:hover {
+  text-decoration: underline;
+}
+
+
+.section-products {
   width: 1280px;
-  display:flex;
-  /* justify-content: center; */
-  justify-content:flex-start;
-  padding: 20px 0;
-  gap: 20px;
-  flex-wrap: wrap;
+  margin:20px 0;
+  /* display:flex;
+  justify-content:center;
+  padding:20px 0px !important; */
+  /* gap: 51px; */
+  /* flex-wrap: wrap; */
+}
+
+/* .product-list {
+  align-self:center !important;
+  justify-content:flex-start !important;
+} */
+
+.product-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px; /* расстояние между карточками */
+  max-width: 1280px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.section-products {
+  justify-content:center !important;
 }
 
 .product {
-  width: 350px;
+  width: 100%;
   padding: 20px;
   border: 1px solid #F8F7FC;
   box-shadow: 0 0 5px rgba(203, 203, 203, 0.5);
   display:flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content:flex-start;
 }
 
-.product img {
-  width: 350px;
+.product-img {
+  width: 100%;
+  height: 301px;
+  display: flex;
+  justify-content: center; /* по центру горизонтально */
+  align-items: center;     /* и по вертикали (если надо) */
+  overflow: hidden;
+}
+
+.product-img img {
+  height: 301px;
 }
 
 .product-title {
   display:flex;
   justify-content: flex-start;
   padding-bottom:20px;
-  
+}
+
+.product-title h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;   /* максимум 2 строки */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .product-title a {
@@ -442,6 +435,7 @@ footer {
 }
 
 .product-btn-wrap {
+  margin-top: auto;
   display:flex;
   justify-content: center;
 }
@@ -452,9 +446,7 @@ footer {
   font-size:18px;
   font-weight: 400;
   background-color: #DC4B22;
-  /* padding: 8px 24px; */
-  border:none;
-  /* border-radius: 5px; */
+  border:none; 
   cursor: pointer;
   padding: 6px 0;
 }
@@ -498,7 +490,6 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 
 .section-introduction h2 {
@@ -508,5 +499,26 @@ footer {
 .section-introduction a {
   line-height: 1.8;
   padding-bottom:40px;
+}
+
+
+@media (max-width: 1279px) {
+  h1 { font-size: 32px; }
+  h2 { font-size: 24px; }
+  header { width:900px;}
+  .section-products, .product-list, .navigation-feed, .section-introduction { width:900px !important; }
+}
+
+/* телефоны */
+@media (max-width: 576px) {
+  h1 { font-size: 26px; }
+  h2 { font-size: 20px; }
+  .section-introduction a {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .product-img {
+    height: 200px;
+  }
 }
 
