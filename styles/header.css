@@ -9,6 +9,7 @@ header {
 }
 
 .header-top {
+  /* background-color:#F8F7FC; */
   border: 1px solid #F8F7FC;
   display:flex;
   justify-content: flex-end;
@@ -31,11 +32,21 @@ header {
 }
 
 .header-phone a:hover{
+  
   color:#282922;
 }
 
 .language-container {
+  /* display:flex;
+  justify-content: right; */
+  /* width: 100%; */
+  /* padding-bottom: 10px;  */
   align-content:center;
+
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw; */
 }
 
 .header-content {
@@ -49,6 +60,7 @@ header {
 }
 
 .navbar-container {
+  /* width: 100%; */
   width: 400px;
   display: flex;
   justify-content: space-around;
@@ -88,7 +100,9 @@ header {
   font-size:18px;
   font-weight: 400;
   background-color: #DC4B22;
+  /* padding: 8px 24px; */
   border:none;
+  /* border-radius: 5px; */
   cursor: pointer;
   display: flex;
   align-items: center;      /* Вертикальное центрирование */
