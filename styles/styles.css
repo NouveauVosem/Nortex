@@ -3,7 +3,15 @@
   box-sizing: border-box;
 }
 
+body {
+  width:100vw;
+  display:block;
+  justify-content: center;
+  align-items: center;
+}
+
 .small-text {
+  padding:0 20px;
   font-size:12px;
 }
 
@@ -146,7 +154,17 @@ header {
 }
 
 .logo {
+  display:flex;
   width:120px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;  /* нужно для z-index */
+  z-index: 20;
+}
+
+.logo img {
+  height: 100%;
+  width: 120px;
 }
 
 .navbar-item {
@@ -225,10 +243,13 @@ header {
 }
 
 .contact-container {
-  width:723px;
+  max-width:723px;
+  width:100%;
 }
 .contact-title {
   text-align:center;
+  width:100% !important;
+  padding:0 10px;
 }
 
 .contact-input-form {
@@ -242,7 +263,8 @@ header {
   height:44px;
   border-radius: 10px;
   margin:10px;
-  width:298px;
+  max-width:298px;
+  width: 100%;
   border:none;
   box-shadow:0 4px 20px rgba(0, 0, 0, 0.1);
   text-decoration:none;
@@ -282,15 +304,15 @@ footer {
   flex-direction: column;
   align-items: center;
   /* height: 343px !important; */
-  width: 100%;
+  width: 100% !important;
   background-color: #282922;
   bottom:0px;
-  padding-bottom:60px;
+  padding-bottom:0px;
 }
 
 .footer-content {
   margin-top:60px;
-  width:1280px;
+  max-width:1280px;
   display:flex;
   flex-direction: row;
   justify-content: space-around;
@@ -298,7 +320,15 @@ footer {
 }
 
 .footer-logo {
-  width:120px !important;
+  padding-right:40px;
+  padding-left:40px;
+}
+
+.footer-logo img{
+  
+  max-width:120px !important;
+  min-width:80px;
+  width:100%;
 }
 
 .footer-text-white {
@@ -324,9 +354,11 @@ footer {
   padding-top:0;
   margin-top:0;
   padding-left:40px;
+  padding-right:40px;
   border-left:1px solid #F8F7FC;
   padding-top:10px;
   padding-bottom:10px;
+  margin-bottom:20px;
 }
 
 .footer-content p{
@@ -477,6 +509,13 @@ footer {
   text-align: center;
   align-items: center;
   padding-bottom:20px;
+  flex-wrap: wrap;
+}
+
+.product-icon div {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .product-icon img{
@@ -511,7 +550,7 @@ footer {
   padding-bottom:40px;
 }
 
-
+/* планшеты */
 @media (max-width: 1279px) {
   h1 { font-size: 32px; }
   h2 { font-size: 24px; }
@@ -519,7 +558,7 @@ footer {
   .section-products, .product-list, .navigation-feed, .section-introduction { width:900px !important; }
 }
 
-/* телефоны */
+/* планшеты 2 */
 @media (max-width: 950px) {
   h1 { font-size: 26px; }
   h2 { font-size: 20px; }
@@ -528,7 +567,128 @@ footer {
     line-height: 1.6;
   }
   
-   header { width:600px;}
-  .section-products, .product-list, .navigation-feed, .section-introduction { width:600px !important; }
+   /* /* header { width:600px;} */
+  header, .section-products, .product-list, .navigation-feed, .section-introduction { 
+    max-width: 600px !important; 
+    width:100% !important;
+    min-width: 0 !important;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #header, header {
+    height: auto;
+    display:flex !important;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .product-list {
+    padding-left:0;
+    padding-right: 0;
+  }
+
+
+  .header-content {
+    /* flex-direction: column; */
+  }
+
+  .header-left { width: 25%;}
+  .header-right {
+    width:75%; 
+    justify-self:flex-end !important;
+    align-self:flex-end !important;
+    flex-wrap: wrap;       
+    white-space: nowrap; 
+  }
+    
+
+    .header-phone {
+      display: flex;            /* элементы в строку */
+      flex-wrap: wrap;       
+      white-space: nowrap;      
+      overflow: hidden;         /* лишнее не выходит наружу */
+      text-overflow: ellipsis;  /* добавляет "..." если не помещается */
+    }
+
+    .header-top {
+      width:100%;
+      flex-direction: column;
+      align-items: end;
+    }
+
+    .header-phone a {
+      padding-left:12px;
+      padding-right:12px;
+      text-overflow: ellipsis; 
+      
+    }
+
+    .navbar-container {
+      display:flex;
+      flex-direction: column;
+      align-items: end;
+      justify-content: flex-end;
+      margin-right:0;
+    }
+
+    .header-right {
+      display:flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .navbar-item {
+      display:flex;
+      justify-content: flex-end;
+      width:100%;
+      border: 1px solid #c5c5c5;
+      border: 1px solid transparent; /* must be set */
+  border-image: linear-gradient(to right, rgba(197,197,197,0), #c5c5c5) 1;
+      margin-bottom:4px;
+    }
+
+    .logo {
+      width:100% !important;
+      min-width:100px;
+    }
+
+    .logo img {
+      width:100% !important;
+    }
+
+    .btn-orange {
+      margin-top:4px;
+    }
+
+    .product-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px; /* расстояние между карточками */
+  max-width: 1280px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+  .product-icon div {
+    margin-bottom:4px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    padding:0 20px;
+  }
+
+  .footer-logo { 
+    padding-bottom: 40px;
+    padding-left:0;
+  }
+
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* убираем горизонтальный скролл */
 }
 

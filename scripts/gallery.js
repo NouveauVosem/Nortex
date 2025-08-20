@@ -41,10 +41,14 @@ function generateGalleryItem (product) {
                 <a href="./${productPage}?id=${product.id}"><h3><b>${product.name}</b></h3></a>
               </div>
               <div class="product-icon">
+                <div>
                 <img src="assets/img/icon-delivery-truck.svg">
                 <a>${t.delivery}</a>
+                </div>
+                <div>
                 <img src="assets/img/icon-delivery-self.svg">
                 <a>${t.pickup}</a>
+                </div>
               </div>
               
               <div class="product-info">

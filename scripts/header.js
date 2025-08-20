@@ -80,7 +80,7 @@ export function generateHeader() {
   return `
         <header>
       <div class="header-top">
-        <div id="contacts-phone-header" class="header-phone"><a>+4 000 00 00 00</a><a>+4 000 00 00 00</a></div>
+        <div id="contacts-phone-header" class="header-phone"></div>
         
          <div class="language-container">
           <button class="btn-light lang-btn" data-lang="ukr">укр</button>
