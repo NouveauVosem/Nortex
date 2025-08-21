@@ -1,5 +1,7 @@
 .product-section {
-  width:1280px;
+  width: 100%;
+  max-width: 1280px;
+  min-width: 0;
   display:flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -12,6 +14,9 @@
   display:flex;
   justify-content: flex-start;
   padding-bottom:20px;
+  width: 100% !important; /* вместо фиксированной */
+  max-width: 560px !important; /* если нужно ограничение */
+  box-sizing: border-box !important;
 }
 
 .product-name h2 {
@@ -19,28 +24,38 @@
 }
 
 .product-wrap {
+  width:100%;
   display:flex;
   justify-content:space-between;
 }
 
+.product-gallery {
+  width:60%;
+}
+
 .product-gallery-main {
-  min-height:505px;
-  min-width: 705px;
+  /* min-height:505px; */
+  max-height:600px;
+  width: 100%;
+  /* aspect-ratio: 3 / 3 !important; */
+  position: relative;
 }
 
 .product-gallery-main img{
-  max-height: 585px;
+  max-height: 100%;
   object-fit: cover;
-  width:700px;
+  width:100%;
   border: 1px solid #F8F7FC;
 }
 
 .product-gallery-thumbs {
-  width: 700px;
+  width: 100%;
   display:flex;
   justify-content: center;
   overflow-x: auto;
   gap:8px;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .product-gallery-thumbs img{
@@ -57,7 +72,8 @@
 }
 
 .product-buy-wrap {
-  width:560px;
+  max-width:560px;
+  width:100%;
   display:flex;
   flex-direction: column;
   justify-content:start;
@@ -85,11 +101,9 @@
 }
 
 .product-short-row {
+  display:flex;
   padding: 20px 0;
-}
-
-.product-short-row a{
-  
+  width:100%
 }
 
 .product-buy-btn {
@@ -261,7 +275,8 @@
   justify-content: center;
   flex-direction: column;
   line-height: 1.5;
-  width:900px;
+  max-width:900px;
+  width:100%;
   padding: 20px 20px;
   border: 1px solid  #F8F7FC;
   margin:20px 0;
@@ -313,7 +328,9 @@
   justify-content: center;
   flex-direction: column;
   line-height: 1.5;
-  width:900px;
+  max-width:900px;
+  width:100%;
+  box-sizing: border-box;
   padding: 20px 20px;
   border: 1px solid  #F8F7FC;
   margin:20px 0;
@@ -392,11 +409,6 @@
 /* миниатюры гпт */
 
 /* Контейнер галереи */
-.product-gallery-thumbs {
-  display: flex;
-  align-items: center;
-  /* gap: 5px; */
-}
 
 /* Кнопки стрелок */
 .thumb-arrow {
@@ -414,38 +426,70 @@
 }
 
 /* Обертка для скролла миниатюр */
+
 .thumbs-scroll {
-  display: flex;
+  /* display: flex;
   overflow-x: auto;
   gap: 5px;
-  scroll-behavior: smooth; /* плавная прокрутка */
-  flex: 1; /* занимает оставшееся место между кнопками */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE 10+ */
+  scroll-behavior: smooth; 
+  flex: 1; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+  flex-wrap:wrap; */
+  overflow: hidden; 
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 5px;
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .thumbs-scroll::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
-/* Миниатюры */
 .thumb-item {
-  width: 60px;
+  /* width: 60px;
   height: 120px;
   object-fit: cover;
   cursor: pointer;
   border: 2px solid transparent;
   border-radius: 5px;
-  transition: border 0.2s;
+  transition: border 0.2s; 
+  
+  height: 120px; 
+  margin-right: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+  border-radius: 0;
+  */
+
+  aspect-ratio: 1/2; /* сохраняет форму */
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+   border: 2px solid transparent;
+  border-radius: 3px;
+  transition: border 0.2s, transform 0.2s;
 }
 
 .thumb-item.active {
   border-color: #DC4B22 !important;
 }
 
-.product-gallery-main {
-  position: relative;
+.thumb-item {
+  
 }
+
+.thumb-item.active {
+  /* transform: scale(1.1); */
+  opacity: 1;
+  border: 1px solid;
+}
+
+
 
 .gallery-arrow {
   width: 40px;
@@ -488,29 +532,120 @@
   opacity: 0;
 }
 
-.product-gallery-thumbs {
-  
+
+
+@media (max-width: 1279px) {
+
+  .product-section {
+    max-width:900px;
+    width:100% !important;
+    padding:20px;
+  }
+
+  .product-gallery-main {
+    min-height: 220px;
+  }
+  .product-gallery {
+    min-width: 60%;
+  }
+
+  .thumbs-scroll {
+  width: 100% !important; /* вместо фиксированной */
+  max-width: 560px !important; /* если нужно ограничение */
+  box-sizing: border-box !important;
+}
+
+.product-gallery-thumbs img {
+  flex-shrink: 1; /* позволяет сжиматься */
+  max-width: 100%; /* не превышать контейнер */
+}
+
+}
+
+/* ----------------MOBILES---------------- */
+
+@media (max-width: 950px) {
+
+  .product-gallery {
+    WIDTH:100%;
+    min-width: 0%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .product-gallery-main {
+    min-height: 170px;
+    min-width: 0%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .product-gallery-main img {
+    display:flex;
+    width:100%;
+  }
+
+  .product-section {
+    max-width:600px ;
+    width:100% !important;
+    padding:20px;
+  }
+
+  .product-wrap {
+    flex-direction: column;
+  }
+
+  .product-buy-wrap {
+    margin-top:20px;
+    padding-left:0px;
+  }
+
+  .product-buy-wrap,
+.product-details,
+.product-perameters {
+  width: 100% !important; /* вместо фиксированной */
+  max-width: 560px !important; /* если нужно ограничение */
+  box-sizing: border-box !important;
+}
+
+.product-buy-wrap, .product-gallery-main {
+  flex-shrink:1; /* обязательно */
+  min-width:0;   /* важно для flex-контейнеров */
+}
+
+.product-gallery-thumbs img {
+  flex-shrink: 1; /* позволяет сжиматься */
+  max-width: 100%; /* не превышать контейнер */
+}
+
+.product-details, .product-perameters {
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+
+
+.product-details-switch {
   display: flex;
-  align-items: center;
-  margin-top: 10px;
+  justify-content: center;
+  gap: clamp(10px, 5vw, 50px); /* от 10px до 50px */
+  flex-wrap: wrap; /* разрешаем перенос */
 }
 
-.thumbs-scroll {
-  display: flex;
-  overflow: hidden;
-  flex: 1;
+.product-name h2{
+  margin-top:0px;
+}
 }
 
-.thumb-item {
-  height: 120px; /* фиксированная высота */
-  margin-right: 5px;
-  cursor: pointer;
-  transition: transform 0.3s, opacity 0.3s;
-  border-radius: 0;
-}
+/* .product-section > *:not(.product-wrap) {
+  display: none !important;
+} */
 
-.thumb-item.active {
-  /* transform: scale(1.1); */
-  opacity: 1;
-  border: 1px solid;
+
+
+.product-gallery > *:not(.product-gallery-main):not(.product-gallery-thumbs) {
+  display: none !important;
 }

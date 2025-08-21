@@ -57,7 +57,7 @@ function generateGalleryItem (product) {
 
               <div class="product-btn-wrap">
                 <button class="btn-product">
-                <a href="./product.html?id=${product.id}">${t.more}</a>
+                <a href="./${productPage}?id=${product.id}">${t.more}</a>
                 </button>
               </div>
               

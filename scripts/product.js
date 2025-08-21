@@ -12,11 +12,13 @@ const t = lang === 'eng' ? productTextsEN : productTextsUA;
 const id = new URLSearchParams(window.location.search).get('id');
 const product = products.find((x) => x.id == id);
 
-// ===== 2. Генерация HTML =====
+// ===== 2. Генерация HTML (NAVIGATION + GALLERY)=====
+
 function createNavigation(product) {
+  const productPage = lang === 'eng' ? 'product-eng.html' : 'product.html';
   const nav = document.querySelector('.navigation-feed');
   const productLink = document.createElement('a');
-  productLink.href = `./product.html?id=${product.id}`;
+  productLink.href = `./${productPage}?id=${product.id}`;
   productLink.textContent = product.name;
   nav.append(' > ', productLink);
 }
@@ -164,6 +166,11 @@ function showTab(tabId, el) {
 
 // ===== 5. Инициализация =====
 function init() {
+
+  console.log("LANG =", lang);
+  console.log('t', t);
+  console.log('products', products);
+
   if (!product) return console.error('Product not found');
   createNavigation(product);
   renderProduct(product);

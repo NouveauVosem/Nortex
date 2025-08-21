@@ -6,6 +6,7 @@
     display: none;
     justify-content: center;
     align-items: center;
+    z-index: 2000;
   }
   /* Окно */
   .modal {
@@ -13,8 +14,8 @@
     color:#f15a29;
     background: white;
     padding: 50px;
-    
-    width: 300px;
+    width: 340px;
+    border-radius: 4px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     position: relative;
   }

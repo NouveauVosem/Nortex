@@ -1,4 +1,10 @@
 
+export function toggleMenu() {
+  document.querySelector(".menu-container").classList.toggle("menu-open");
+}
+
+window.toggleMenu = toggleMenu;
+
 export function getTranslatedPageLink(targetLang) {
   const path = window.location.pathname;    // например, /product.html или /product-eng.html
   const params = window.location.search;    // например, ?id=123
@@ -76,6 +82,8 @@ export function generateHeader() {
     return lang === 'eng' ? `./${page}-eng.html` : `./${page}.html`;
   }
 
+  
+
 
   return `
         <header>
@@ -96,13 +104,17 @@ export function generateHeader() {
           </div>
         </div>
         <div class="header-right">
-          <nav class="navbar-container">
+        <div class="header-burger" onclick="toggleMenu()">
+          <img src="assets/icons/icon-burger.svg"/>       
+        </div>
+          <div class="menu-container">
+          <nav class="navbar-container menu">
               <li class="navbar-item"><a href="${link('index')}">${t.gallery}</a></li>
               <li class="navbar-item"><a href="${link('about')}">${t.about}</a></li>
               <li class="navbar-item"><a href="${link('contacts')}">${t.contacts}</a></li>
           </nav>
-          <button id="openModal" class="btn-orange">${t.order}</button>
-          
+          <button id="openModal" class="btn-orange menu">${t.order}</button>
+          </div>
         </div>
       </div>
       <div class="modal-overlay" id="modalOverlay">
