@@ -1,5 +1,9 @@
 .contacts-section {
-  width:1280px;
+  max-width:1280px;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content:center ;
 }
 
 .contacts-title {
@@ -22,8 +26,17 @@
   display:flex;
   flex-direction: row;
   justify-content: space-between;
-  
   width: 100%;
+}
+
+.contacts-map {
+  max-width: 615px;
+  width:100%;
+}
+
+.contacts-map iframe {
+  max-width:615px;
+  width:100%;
 }
 
 .contacts-list {
@@ -108,3 +121,19 @@
 .contacts-mail-bottom {
   margin-left:40px;
 }
+
+/* планшеты */
+@media (max-width: 1279px) {
+  .contacts-section {
+  max-width:900px;
+  }
+
+}
+
+/* планшеты 2 */
+@media (max-width: 950px) {
+  .contacts-section {
+  max-width:900px;
+  padding: 0 20px;
+  }
+} 
