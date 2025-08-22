@@ -41,6 +41,7 @@
 
 .contacts-list {
   width:50%;
+  margin-right:20px;
 }
 
 .contacts-row {
@@ -55,7 +56,7 @@
   /* border-radius: 10px; */
   border: 1px solid #F0F0F0;
   padding:10px 0;
-  
+  padding-right:10px;
 }
 
 .contacts-adress-top {
@@ -127,13 +128,49 @@
   .contacts-section {
   max-width:900px;
   }
+  .contacts-row {
+    flex-direction: column;
+  }
 
+  .contacts-adress {
+    width:100%;
+  }
+
+  .contacts-map {
+    max-width:50%;
+  }
+
+  .iframe {
+    max-width:200px;
+  }
+
+  .contacts-adress-bottom-wrap {
+    flex-direction: column;
+  }
 }
 
 /* планшеты 2 */
 @media (max-width: 950px) {
   .contacts-section {
-  max-width:900px;
+  max-width:600px;
   padding: 0 20px;
+  }
+
+  .contacts-wrap {
+    flex-direction: column;
+  }
+
+  .contacts-list, .contacts-map {
+    max-width:100%;
+    width:100%;
+  }
+
+  .contacts-map {
+    order:-1;
+    margin-bottom:16px;
+  }
+
+  .header-phone {
+    display:none;
   }
 } 

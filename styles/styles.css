@@ -609,16 +609,12 @@ footer {
     width:100%;
     justify-content: center;
     align-items: center;
+    min-width:335px;
   }
   
   .product-list {
     padding-left:0;
     padding-right: 0;
-  }
-
-
-  .header-content {
-    /* flex-direction: column; */
   }
 
   .header-left { width: 25%;}
@@ -699,41 +695,45 @@ footer {
       
     }
 
-    .menu-open {
-      max-height: 440px;    /* достаточно большое значение */
-      opacity: 1; 
+  .menu-open {
+    max-height: 440px;    /* достаточно большое значение */
+    opacity: 1; 
 
 
-      margin-top:20px;
-      /* display:flex; */
-      position: absolute;    /* будет привязано к бургеру */
-      top: 100%;             /* ровно под бургером */
-                   /* выравниваем по правому краю */
-      background: white;     /* фон меню */
-      flex-direction: column;
-      min-width: 180px;      /* ширина по вкусу */
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      z-index: 200; 
-      align-items: flex-end;
-      min-width: 160px;   /* фикс ширина */
-      width: max-content;
-      padding:20px 20px;
-      
-    }
+    margin-top:20px;
+    /* display:flex; */
+    position: absolute;    /* будет привязано к бургеру */
+    top: 100%;             /* ровно под бургером */
+                  /* выравниваем по правому краю */
+    background: white;     /* фон меню */
+    flex-direction: column;
+    min-width: 180px;      /* ширина по вкусу */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 200; 
+    align-items: flex-end;
+    min-width: 160px;   /* фикс ширина */
+    width: max-content;
+    padding:20px 20px;
+    
+  }
 
-    .header-burger {
-      display:flex;
-      position:relative;
-    }
+  .header-burger {
+    display:flex;
+    position:relative;
+  }
 
-    .product-list {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
-  gap: 20px; /* расстояние между карточками */
-  max-width: 1280px;
-  margin: 0 auto;
-  justify-items: center;
-}
+  .header-phone {
+    display:none;
+  }
+
+  .product-list {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
+    gap: 20px; /* расстояние между карточками */
+    max-width: 1280px;
+    margin: 0 auto;
+    justify-items: center;
+  }
 
   .product-icon div {
     margin-bottom:4px;
