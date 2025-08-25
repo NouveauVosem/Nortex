@@ -213,9 +213,6 @@ header {
   font-size:18px;
   font-weight: 400;
   background-color: #DC4B22;
-  /* padding: 8px 24px; */
-  /* border:none; */
-  /* border-radius: 5px; */
   cursor: pointer;
   display: flex;
   align-items: center;      /* Вертикальное центрирование */

@@ -152,10 +152,6 @@
   font-size: 12px;
 }
 
-
-
-
-
 .phone-input-row {
   display:flex;
   flex-direction: row;
@@ -626,8 +622,6 @@
   box-sizing: border-box;
 }
 
-
-
 .product-details-switch {
   display: flex;
   justify-content: center;
@@ -643,8 +637,6 @@
 /* .product-section > *:not(.product-wrap) {
   display: none !important;
 } */
-
-
 
 .product-gallery > *:not(.product-gallery-main):not(.product-gallery-thumbs) {
   display: none !important;

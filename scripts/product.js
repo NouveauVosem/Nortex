@@ -49,6 +49,118 @@ function createParameters(parameters) {
   `).join('');
 }
 
+function createReview() {
+  return `
+  
+
+        <section class="reviews-section">
+          
+          <div class="first-review">
+            <div class="first-review-front">
+              <p><span>Будь першим !</span></br>Ваш відгук дуже важливий для нас.</p>
+            </div>
+            
+          </div>
+
+          <div class="reviews">
+
+            <div class="review">
+              <div class="review-top">
+                <div class="review-left">
+                  <div class = "review-name">
+                  <p><b>Steve Stark</b></p>
+                  </div>
+                  <div class="review-rating">
+                  ★★★★☆
+                  </div>
+                </div>
+                
+                <div class="review-time">
+                  <p>7.11.2024</p>
+                </div>
+
+              </div>
+              <div class="review-text">
+                <p>The best tool I ever worked with !!! Love it. Best ever ever ever ever.</p>
+                
+              </div>
+            </div>
+
+            <div class="review">
+              <div class="review-top">
+                <div class="review-left">
+                  <div class = "review-name">
+                  <p><b>Steve Stark</b></p>
+                  </div>
+                  <div class="review-rating">
+                  ★★★★☆
+                  </div>
+                </div>
+                
+                <div class="review-time">
+                  <p>7.11.2024</p>
+                </div>
+
+              </div>
+              <div class="review-text">
+                <p>The best tool I ever worked with !!! Love it. Best ever ever ever ever.</p>
+                
+              </div>
+            </div>
+            
+            <div class="review">
+              <div class="review-top">
+                <div class="review-left">
+                  <div class = "review-name">
+                  <p><b>Steve Stark</b></p>
+                  </div>
+                  <div class="review-rating">
+                  ★★★★☆
+                  </div>
+                </div>
+                
+                <div class="review-time">
+                  <p>7.11.2024</p>
+                </div>
+
+              </div>
+              <div class="review-text">
+                <p>The best tool I ever worked with !!! Love it. Best ever ever ever ever.</p>
+                
+              </div>
+            </div>
+
+          </div>
+
+          <div class="add-review">
+            <form class="review-input-form" action="https://formsubmit.co/nouveauvosem@gmail.com" method="POST" >
+              
+              <textarea name="message" class="add-review-textarea" type="text" placeholder="Коментар"></textarea>
+              
+              
+              <div class="add-review-contacts">
+                <input class="add-review-input" name="name" type="text" placeholder="Iм'я">
+                <input class="add-review-input" name="email" type="text" placeholder="Email">
+                <ul class="review-stars">
+                  <li>★</li>
+                  <li>☆</li>
+                  <li>☆</li>
+                  <li>☆</li>
+                  <li>☆</li>
+                </ul>
+                
+                
+              </div>
+
+              <button class="btn-orange-flex">Відправити</button>
+              
+              
+            </form>
+          </div>
+        </section>
+  `;
+}
+
 // ===== 3. Рендеринг =====
 function renderProduct(product) {
   document.getElementById('product').innerHTML = `
@@ -114,7 +226,7 @@ function renderProduct(product) {
       </div>
       <div id="tab1" class="product-details"><a>${product.fullDescription}</a></div>
       <div id="tab2" class="product-perameters">${createParameters(product.parameters)}</div>
-      <div id="tab3" class="product-reviews"></div>
+      <div id="tab3" class="product-reviews">${createReview()}</div>
     </div>
   `;
 }
