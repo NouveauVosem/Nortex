@@ -4,6 +4,7 @@ import { productTextsEN } from './translations-eng.js';
 import { getCurrentLang } from './header.js';
 import { products as productsEng } from './products-en.js';
 import { products as productsUkr } from './products.js';
+import { createReviewSection } from './rating.js';
 
 const lang = getCurrentLang();
 const products = lang === 'eng' ? productsEng : productsUkr;
@@ -117,8 +118,7 @@ function renderProduct(product) {
       <div class="product-details-switch">
         <h2 data-tab="tab1">${t.fullDescription}</h2>
         <h2 data-tab="tab2">${t.characteristics}</h2>
-        <h2 data-tab="tab3">${t.reviews}</h2>
-        <div class="underline"></div>
+        <h2 data-tab="tab3">${t.reviews}</h2>        
       </div>
       <div id="tab1" class="product-details"><a>${product.fullDescription}</a></div>
       <div id="tab2" class="product-perameters">${createParameters(product.parameters)}</div>
@@ -137,7 +137,7 @@ function initRollBoxes() {
       if (!collapse) return;
       collapse.style.display = (collapse.style.display === 'flex') ? 'none' : 'flex';
       const arrow = head.querySelector('.icon-arrow');
-      if (arrow) arrow.style.transform = collapse.style.display === 'flex' ? 'rotate(180deg)' : 'rotate(0deg)';
+      if (arrow) arrow.style.transform = collapse.style.display === 'flex' ? 'rotate(0deg)' : 'rotate(180deg)';
     });
   });
 }

@@ -1,0 +1,32 @@
+export const reviews = [
+  {
+    name: "8",
+    message: "8",
+    email: "8",
+    subject: 3,
+    rating: 3,
+    dateNow: "26.08.2025",
+    productId: 1,
+    productName: "Nortex MIG 250P Зварювальний апарат ",
+  },
+  {
+    name: "8",
+    message: "8",
+    email: "8",
+    subject: 3,
+    rating: 3,
+    dateNow: "26.08.2025",
+    productId: 1,
+    productName: "Nortex MIG 250P Зварювальний апарат ",
+  },
+  {
+    name: "4",
+    message: "4",
+    email: "4",
+    subject: 4,
+    rating: 4,
+    dateNow: "26.08.2025",
+    productId: 1,
+    productName: "Nortex MIG 250P Зварювальний апарат ",
+  },
+];
