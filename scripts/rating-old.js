@@ -1,32 +1,83 @@
-<!DOCTYPE html>
-<html lang="ukr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nortex</title>
-  <!-- <link rel="stylesheet" type="text/css" href="./styles/styles.css"> -->
-  <link rel="stylesheet" type="text/css" href="./styles/modal.css">
-  <link rel="stylesheet" type="text/css" href="./styles/comment.css">
-  <link rel="stylesheet" type="text/css" href="./styles/styles.css">
-  <link rel="stylesheet" type="text/css" href="./styles/review.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+const stars = document.querySelectorAll(".star");
+const ratingValue = document.getElementById("rating-value");
+let currentRating = 0;
 
-</head>
+stars.forEach((star, index) => {
+  // підсвічування при наведенні
+  star.addEventListener("mouseover", () => {
+    stars.forEach((s, i) => {
+      s.src =
+        i <= index
+          ? "./assets/icons/icon-star.svg"
+          : "./assets/icons/icon-star-empt.svg";
+    });
+  });
+
+  // повернення до збереженого рейтингу
+  star.addEventListener("mouseout", () => {
+    stars.forEach((s, i) => {
+      s.src =
+        i < currentRating
+          ? "./assets/icons/icon-star.svg"
+          : "./assets/icons/icon-star-empt.svg";
+    });
+  });
+
+  // збереження рейтингу при кліку
+  star.addEventListener("click", () => {
+    currentRating = index + 1;
+    ratingValue.textContent = currentRating;
+    stars.forEach((s, i) => {
+      s.src =
+        i < currentRating
+          ? "./assets/icons/icon-star.svg"
+          : "./assets/icons/icon-star-empt.svg";
+    });
+  });
+});
 
 
-<body>
-  <div id="app">
-    
-    <div id="header"></div> 
+// REVIEW SUBMITION
+function submitForm() {
+  const emailInput = document.getElementById("email").value;
+  const nameInput = document.getElementById("name").value;
+  const messageInput = document.getElementById("message").value;
+  const ratingInput = currentRating;
+
+    const formData = {
+    name: nameInput,
+    message: messageInput,
+    email: emailInput,
+    subject: ratingInput,
+    rating: ratingInput,
+    product:product
+  };
+
+  fetch("https://formsubmit.co/ajax/nouveauvosem@gmail.com", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      name: nameInput,
+      message: messageInput,
+      email:emailInput,
+      rating:ratingInput,
+      data:JSON.stringify(formData)
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.log(error));
+}
 
 
 
-    <main>
-      <section class="navigation-feed" id="navPath"><a href="./index.html">Дом</a> > <a href="./index.html">Галерея</a></section>
+// CREATE REVIEW SECTION
 
-        <section class="reviews-section">
+function createReviewSection() {
+  return `<section class="reviews-section">
           
           <div class="first-review">
             <div class="first-review-front">
@@ -107,37 +158,9 @@
             </form>
             <button class="btn-orange-flex" onclick={submitForm()}>Відправити рецензію</button>
           </div>
-        </section>
-        
-    </main>
-    
-    <footer>
-      <div id='footer' class="footer-content">
-        <div class="footer-logo">
-          <img src="./assets/img/nortex-logo-white.svg" />
-        </div>
-        <div class="footer-assortment">
-          <h4>Асортимент</h4>
-          <a href="./product.html?id=0" class="footer-text-white">Зварювальний апарат MIG 250P</a>
-          <a href="./product.html?id=1" class="footer-text-white">Зварювальний апарат MIG 250</a>
-          <a href="./product.html?id=2" class="footer-text-white">Плазморіз інверторний Nortex CUT-80 (80А)</a>
-        </div>
-        <div class="footer-info">
-          <h4>Інформація</h4>
-          <a href="./index.html" class="footer-text-white">Контакти</a>
-          <a href="./about.html" class="footer-text-white">Про нас</a>
-        </div>
-        <div class="footer-contacts">
-          <h4>Контакти</h4>
-          <p id='contacts-email-footer' class="footer-text-white wrap">nortex@gmail.com</p>
-          <p id='contacts-phone-footer' class="footer-text-white">+4 000 00 00 00</p>
-        </div>
-      </div>
-    </footer>
-    
-  </div>
+          
+        </section>`;
+}
 
-  <script type="module" src="./scripts/index.js"></script>
-  <script type="module" src="./scripts/rating.js"></script>
-</body>
-</html>
+window.submitForm = submitForm;
+window.createReviewSection = createReviewSection;
