@@ -379,8 +379,12 @@
 }
 
 .product-details-switch h2.active::after {
-  opacity: 1;
+  opacity: 1 ;
 }
+
+/* .product-details-switch h2:hover {
+  color:#444;
+} */
 
 .product-details-switch h2:hover::after {
   content: '';

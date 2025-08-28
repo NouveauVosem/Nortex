@@ -59,7 +59,7 @@ function createParameters(parameters) {
 
 
 // ===== 3. Рендеринг =====
-function renderProduct(product) {
+async function renderProduct(product) {
   document.getElementById('product').innerHTML = `
     <div class="product-name"><h2 id='product-name'>${product.name}</h2></div>
     <div class="product-wrap">
@@ -122,7 +122,7 @@ function renderProduct(product) {
       </div>
       <div id="tab1" class="product-details"><a>${product.fullDescription}</a></div>
       <div id="tab2" class="product-perameters">${createParameters(product.parameters)}</div>
-      <div id="tab3" class="product-reviews">${createReviewSection()}</div>
+      <div id="tab3" class="product-reviews">${await createReviewSection()}</div>
     </div>
   `;
 }
@@ -165,12 +165,6 @@ function changeImage(src) {
   document.getElementById('mainImage').src = src;
 }
 
-// function showTab(tabId, el) {
-//   document.querySelectorAll('#tab1, #tab2, #tab3').forEach(tab => tab.style.display = 'none');
-//   document.getElementById(tabId).style.display = 'flex';
-//   document.querySelectorAll('.product-details-switch h2').forEach(t => t.classList.remove('active'));
-//   el.classList.add('active');
-// }
 
 function showTab(tabId, el) {
   // Скрываем все вкладки
@@ -188,7 +182,7 @@ function showTab(tabId, el) {
 
 
 // ===== 5. Инициализация =====
-function init() {
+async function init() {
 
   console.log("LANG =", lang);
   console.log('t', t);
@@ -196,7 +190,7 @@ function init() {
 
   if (!product) return console.error('Product not found');
   createNavigation(product);
-  renderProduct(product);
+  await renderProduct(product);
   initEvents();
   document.querySelector('.product-details-switch h2')?.click();
   initArrowControls(product.img);

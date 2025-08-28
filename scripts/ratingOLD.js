@@ -1,6 +1,7 @@
+import { reviews } from './reviews.js';
 import { addReview } from "./addReview.js";
+import { getReviews } from "./addReview.js";
 import { getReviewsByProduct } from "./addReview.js";
-
 
 
 // INIT REVIEW STARS
@@ -44,6 +45,24 @@ stars.forEach((star, index) => {
   });
 });
 }
+
+// function loadReviews() {
+//   const productId = window.product.id;
+
+//   // подписываемся на изменения
+//   getReviews(productId, (reviews) => {
+//     // генерируем HTML
+
+//     const sectionHTML = createReviewSection(reviews);
+
+//     console.log(reviews);
+//     // вставляем в DOM (например, в контейнер с id="reviews-container")
+//     // document.getElementById("reviews-container").innerHTML = sectionHTML;
+//   });
+// }
+
+// // вызываем при загрузке страницы
+// loadReviews();
 
 // CREATE REVIEW SECTION
 
@@ -115,6 +134,72 @@ export async function createReviewSection() {
 }
 
 
+// CREATE REVIEW SECTION OLD
+
+// export function createReviewSection() {
+
+//   // фильтруем отзывы под конкретный продукт
+//   const productReviews = reviews.filter(r => r.productId === window.product.id);
+//   // если нет отзывов
+//   let reviewsHTML = "";
+//   if (productReviews.length === 0) {
+//     reviewsHTML = `
+//       <div class="first-review">
+//         <div class="first-review-front">
+//           <p><span>Будь першим !</span></br>Ваш відгук дуже важливий для нас.</p>
+//         </div>
+//       </div>
+//     `;
+//     } else {
+//     productReviews.forEach(r => {
+//       reviewsHTML += `
+//         <div class="review">
+//           <div class="review-top">
+//             <div class="review-left">
+//               <div class="review-name">
+//                 <p><b>${r.name}</b></p>
+//               </div>
+//               <div class="review-rating">
+//                 ${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}
+//               </div>
+//             </div>
+//             <div class="review-time">
+//               <p>${r.dateNow}</p>
+//             </div>
+//           </div>
+//           <div class="review-text">
+//             <p>${r.message}</p>
+//           </div>
+//         </div>
+//       `;
+//     });
+//   }
+//   // общий шаблон секции
+//   return `
+//     <section class="reviews-section">
+//       <div class="reviews">${reviewsHTML}</div>
+//       <div class="add-review">
+//         <form class="review-input-form">
+//           <textarea id='message' name="message" class="add-review-textarea" placeholder="Коментар"></textarea>
+//           <div class="add-review-contacts">
+//             <input id='name' class="add-review-input" name="name" type="text" placeholder="Iм'я">
+//             <input id='email' class="add-review-input" name="email" type="text" placeholder="Email">
+//             <div class="add-review-stars">
+//               <img src="./assets/icons/icon-star-empt.svg" data-value="1" class="star" alt="зірка 1">
+//               <img src="./assets/icons/icon-star-empt.svg" data-value="2" class="star" alt="зірка 2">
+//               <img src="./assets/icons/icon-star-empt.svg" data-value="3" class="star" alt="зірка 3">
+//               <img src="./assets/icons/icon-star-empt.svg" data-value="4" class="star" alt="зірка 4">
+//               <img src="./assets/icons/icon-star-empt.svg" data-value="5" class="star" alt="зірка 5">
+//             </div>
+//           </div>
+//         </form>
+//         <button class="btn-orange-flex">Відправити рецензію</button>
+//       </div>
+//     </section>
+//   `;
+// }
+
+
 // REVIEW SUBMITION
 function submitForm() {
 
@@ -158,16 +243,6 @@ function submitForm() {
     .then((response) => response.json())
     .then((data) => console.log(data))
     .catch((error) => console.log(error));
-    
-    cleanForm()
-}
-
-function cleanForm() {
-  // очищаем форму
-  document.getElementById("name").value = "";
-  document.getElementById("email").value = "";
-  document.getElementById("message").value = "";
-  currentRating = 0;
 }
 
 
