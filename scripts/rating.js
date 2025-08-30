@@ -1,6 +1,6 @@
 import { addReview } from "./addReview.js";
 import { getReviewsByProduct } from "./addReview.js";
-
+import { RefreshReviewCounter } from "./product.js";
 
 
 
@@ -67,28 +67,8 @@ export async function createReviewSection() {
       </div>
     `;
     } else {
-    productReviews.forEach(r => {
-      reviewsHTML += `
-        <div class="review">
-          <div class="review-top">
-            <div class="review-left">
-              <div class="review-name">
-                <p><b>${r.name}</b></p>
-              </div>
-              <div class="review-rating">
-                ${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}
-              </div>
-            </div>
-            <div class="review-time">
-              <p>${r.dateNow}</p>
-            </div>
-          </div>
-          <div class="review-text">
-            <p>${r.message}</p>
-          </div>
-        </div>
-      `;
-    });
+// тут используем функцию для каждого отзыва
+    reviewsHTML = productReviews.map(r => renderReview(r)).join("");
   }
   // общий шаблон секции
   return `
@@ -140,7 +120,8 @@ function submitForm() {
   console.log(window.product);
   console.log(reviewData);
 
-  addReview(reviewData); 
+  addReview(reviewData); // грузим на Firebase
+  addReviewToDOM(reviewData); // ДОРИСОВЫВАЕМ в ДОМ
 
   fetch("https://formsubmit.co/ajax/nouveauvosem@gmail.com", {
     method: "POST",
@@ -160,15 +141,48 @@ function submitForm() {
     .then((data) => console.log(data))
     .catch((error) => console.log(error));
     
-    cleanForm()
+    cleanForm() // чистим форму
+    RefreshReviewCounter() // Обновляем счетчик в заголовке
 
     // 2. Перерисовываем блок отзывов
-    refreshReviewSection()
+    // refreshReviewSection()
 
-    // 3. Обновляем счетчик в заголовке
-    // document.getElementById("reviews-tab").innerText =
-    //   `${t.reviews} (${currentReviews.length})`;
+    
 }
+
+
+function renderReview(review) {
+  return `
+    <div class="review new">
+      <div class="review-top">
+        <div class="review-left">
+          <div class="review-name"><p><b>${review.name}</b></p></div>
+          <div class="review-rating">${"★".repeat(review.rating)}${"☆".repeat(5 - review.rating)}</div>
+        </div>
+        <div class="review-time"><p>${review.dateNow}</p></div>
+      </div>
+      <div class="review-text"><p>${review.message}</p></div>
+    </div>
+  `;
+}
+
+function addReviewToDOM(review) {
+
+  const reviewsContainer = document.querySelector("#tab3 .reviews");
+  reviewsContainer.insertAdjacentHTML("beforeend", renderReview(review));
+
+  const placeholder = reviewsContainer.querySelector(".first-review");
+  if (placeholder) {
+    placeholder.remove();
+  }
+
+  const lastReview = reviewsContainer.lastElementChild;
+  if (lastReview) {
+    lastReview.classList.add("new");
+    setTimeout(() => lastReview.classList.remove("new"), 1500);
+  }
+}
+
 
 function cleanForm() {
   // очищаем форму
@@ -179,7 +193,18 @@ function cleanForm() {
 }
 
 async function refreshReviewSection() {
-    document.getElementById("tab3").innerHTML = await createReviewSection();
+
+    const tab3 = document.getElementById("tab3");
+  
+    tab3.innerHTML = await createReviewSection();
+
+        // Сбрасываем анимацию обновления
+    tab3.classList.remove("animate-in");
+    void tab3.offsetWidth; // 🔥 перезапуск
+
+    // Запускаем анимацию
+    tab3.classList.add("animate-in");
+
     initReviewStars();
     document.querySelector("#tab3 .btn-orange-flex")?.addEventListener("click", submitForm);
 }

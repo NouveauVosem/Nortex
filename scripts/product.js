@@ -36,6 +36,12 @@ async function loadReviews(productId) {
   }
 }
 
+export function RefreshReviewCounter() {
+  const reviewsCount = document.querySelectorAll("#tab3 .reviews .review").length;
+document.getElementById("reviews-tab").innerText =
+  `${t.reviews} (${reviewsCount})`;
+}
+
 // ===== 2. Генерация HTML (NAVIGATION + GALLERY)=====
 
 function createNavigation(product) {

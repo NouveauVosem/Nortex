@@ -32,6 +32,25 @@
   margin-bottom:14px;
 }
 
+.review.new {
+  animation: highlight 1.6s ease;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: #F8F8FF; /* мягкий жёлтый фон */
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    background-color: white;
+  }
+}
+
 .review-top {
   background-color: #F8F7FC; 
   padding: 0 20px;
@@ -286,6 +305,7 @@
   font-weight: 700;
 }
 
+/* Анимация - всплывания букв*/
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -296,7 +316,6 @@
     transform: translateY(0);
   }
 }
-
 /* Анимация плавного движения градиента */
 @keyframes gradientAnimation {
   0% { background-position: 0% 50%; }
@@ -313,6 +332,8 @@
   backdrop-filter: blur(10px); /* эффект "стекла" */
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
+
+
 
 
 @media (max-width: 500px) {
