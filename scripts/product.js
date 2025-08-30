@@ -5,6 +5,9 @@ import { getCurrentLang } from './header.js';
 import { products as productsEng } from './products-en.js';
 import { products as productsUkr } from './products.js';
 import { createReviewSection } from './rating.js';
+import { getReviewsByProduct } from "./addReview.js";
+
+// ===== 0. узнаём язык браузера и выбираем соответствующий перевод.
 
 const lang = getCurrentLang();
 const products = lang === 'eng' ? productsEng : productsUkr;
@@ -16,6 +19,22 @@ const id = new URLSearchParams(window.location.search).get('id');
 const product = products.find((x) => x.id == id);
 
 window.product = product;
+
+export let currentReviews = []; // глобальная переменная
+
+async function loadReviews(productId) {
+  try {
+    currentReviews = await getReviewsByProduct(productId);
+    console.log("Отзывы загружены:", currentReviews);
+
+    // обновляем количество в заголовке
+    document.getElementById("reviews-tab").innerText =
+      `${t.reviews} (${currentReviews.length})`;
+  } catch (err) {
+    console.error("Ошибка при загрузке отзывов:", err);
+    currentReviews = [];
+  }
+}
 
 // ===== 2. Генерация HTML (NAVIGATION + GALLERY)=====
 
@@ -118,13 +137,15 @@ async function renderProduct(product) {
       <div class="product-details-switch">
         <h2 data-tab="tab1">${t.fullDescription}</h2>
         <h2 data-tab="tab2">${t.characteristics}</h2>
-        <h2 data-tab="tab3">${t.reviews}</h2>        
+        <h2 id="reviews-tab" data-tab="tab3">${t.reviews}</h2>        
       </div>
       <div id="tab1" class="product-details"><a>${product.fullDescription}</a></div>
       <div id="tab2" class="product-perameters">${createParameters(product.parameters)}</div>
       <div id="tab3" class="product-reviews">${await createReviewSection()}</div>
     </div>
   `;
+  console.log("load review id:" + product.id);
+  await loadReviews(product.id);
 }
 
 // ===== 4. Обработчики =====

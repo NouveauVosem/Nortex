@@ -3,6 +3,7 @@ import { getReviewsByProduct } from "./addReview.js";
 
 
 
+
 // INIT REVIEW STARS
 let currentRating = 0;
 
@@ -160,6 +161,13 @@ function submitForm() {
     .catch((error) => console.log(error));
     
     cleanForm()
+
+    // 2. Перерисовываем блок отзывов
+    refreshReviewSection()
+
+    // 3. Обновляем счетчик в заголовке
+    // document.getElementById("reviews-tab").innerText =
+    //   `${t.reviews} (${currentReviews.length})`;
 }
 
 function cleanForm() {
@@ -168,6 +176,12 @@ function cleanForm() {
   document.getElementById("email").value = "";
   document.getElementById("message").value = "";
   currentRating = 0;
+}
+
+async function refreshReviewSection() {
+    document.getElementById("tab3").innerHTML = await createReviewSection();
+    initReviewStars();
+    document.querySelector("#tab3 .btn-orange-flex")?.addEventListener("click", submitForm);
 }
 
 

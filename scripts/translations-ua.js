@@ -14,5 +14,5 @@ export const productTextsUA = {
   oneClickSub: "Введіть номер телефону, і ми передзвонимо",
   fullDescription: "Повний опис",
   characteristics: "Характеристики",
-  reviews: "Відгуки (0)"
+  reviews: "Відгуки "
 };

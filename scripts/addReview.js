@@ -84,6 +84,8 @@ export async function debugReadAllReviews() {
 debugReadAllReviews();
 
 
+export let currentReviews=[];
+
 export async function getReviewsByProduct(productId) {
   try {
     const snapshot = await get(ref(db, `reviews/${productId}`));
@@ -95,7 +97,7 @@ export async function getReviewsByProduct(productId) {
     // объект с ключами → превращаем в массив
     const data = snapshot.val();
     const reviewsArray = Object.values(data);
-
+    currentReviews=reviewsArray;
     console.log("🔥 Массив отзывов:", reviewsArray);
     return reviewsArray;
   } catch (err) {

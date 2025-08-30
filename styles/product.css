@@ -15,7 +15,7 @@
   justify-content: flex-start;
   padding-bottom:20px;
   width: 100% !important; /* вместо фиксированной */
-  max-width: 560px !important; /* если нужно ограничение */
+  /* max-width: 560px !important; */
   box-sizing: border-box !important;
 }
 

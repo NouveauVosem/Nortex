@@ -14,5 +14,5 @@ export const productTextsEN = {
   oneClickSub: "Enter your phone number and we will call you back",
   fullDescription: "Full description",
   characteristics: "Specifications",
-  reviews: "Reviews (0)"
+  reviews: "Reviews"
 };
