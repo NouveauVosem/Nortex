@@ -104,7 +104,7 @@ header {
   /* background-color:#F8F7FC; */
   border: 1px solid #F8F7FC;
   display:flex;
-  justify-content:space-between;
+  justify-content:flex-end;
   margin-bottom:2px;
 }
 
@@ -115,6 +115,7 @@ header {
 }
 
 .header-phone {
+  justify-self: center !important;
   display:flex;
   justify-content: center;
   align-items: center;
