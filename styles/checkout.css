@@ -1,14 +1,21 @@
+.checkout-contact-line input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset; /* фон */
+  -webkit-text-fill-color: #272727;                 /* цвет текста */
+  transition: background-color 5000s ease-in-out; /* плавная замена */
+}
+
+input:required {
+  /* border-left: 2px solid #ff531f; */
+}
+
 .checkout-section {
   min-height: 100vh;
   max-width:1280px;
   width:100%;
   padding: 0px 0px;
-  /* margin-left: -40px;
-  margin-right: -40px; */
   display:flex;
   flex-direction: column;
   justify-content:flex-start;
-  /* align-items: center; */
 }
 
 .checkout-title {
@@ -28,7 +35,8 @@
   display:flex;
   flex-direction: row;
   align-items: flex-start;
-  margin:20px 0;
+  margin-top:0px;
+  margin-bottom:40px;
   gap:10px;
 }
 
@@ -36,7 +44,16 @@
   width:35%;
   display:flex;
   flex-direction: column;
-  box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+  justify-content: flex-start;
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+  border:1px solid #90b913;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  overflow: hidden;
+
+  /* box-shadow: 0 5px 8px rgba(0,0,0,0.1); */
 }
 
 .checkout-item-list {
@@ -63,7 +80,7 @@
   max-height:140px;
   width:100%;
   height:140px;
-  margin:4px;
+  /* margin:4px; */
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -97,20 +114,24 @@
   flex-direction: column;
   width: 65%;
   padding-right:40px;
+  gap:10px;
 }
 
 
-.checkout-contact {
+.checkout-panel {
   width:100%;
-  padding:20px;
-  
-  border-top:1px solid #c0c0c0;
+  padding:40px;
+  background-color: #F8F7FC;
+  gap:20px;
+  display:flex;
+  flex-direction:column;
+  /* border-top:1px solid #c0c0c0; */
   /* border-radius: 4px; */
 }
 
-.checkout-contact h3 {
+.checkout-panel h3 {
   margin-top:0px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .checkout-item-text-short p {
@@ -120,6 +141,7 @@
 
 .checkout-input {
   width: 100%;
+  min-width:220px;
   /* max-width: 350px;      */
   padding: 12px 16px;
   font-size: 16px;
@@ -153,6 +175,9 @@
 }
 
 .checkout-subtotal {
+  display:flex;
+  flex-direction: column;
+  gap:6px;
   background-color: #F8F7FC;
   padding:20px;
 }
@@ -174,9 +199,33 @@
   padding-top:10px;
 }
 
+.checkout-btn-order {
+  width:100%;
+  height: 55px;
+  color: white;
+  font-size:18px;
+  font-weight: 400;
+  background-color: #90b913;
+  cursor: pointer;
+  display: flex;
+  align-items: center;     
+  justify-content: center;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  align-self:flex-end;
+  justify-self: flex-end;
+  /* z-index: 100; */
+  /* margin-top:auto; */
+}
+
+.checkout-btn-order:hover {
+  background-color: #a2cd22;
+}
+
+
 .checkout-country {
-  width: 100%;
-  max-width: 350px;
+  width: calc(50% - 10px);
+  /* max-width: 350px; */
   padding: 12px 16px;
   font-size: 16px;
   font-family: inherit;
@@ -210,9 +259,90 @@
 }
 
 .checkout-contact-line{
-  padding-bottom:20px;
+  /* padding-bottom:20px; */
   width:100%;
   display:flex;
   gap:20px;
 }
+
+.checkout-contact-line textarea {
+  width: 100%!important;
+  height: 150px; /* Approximately three rows */
+  resize: none;
+  padding: 16px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-top-left-radius: 10px;
+  /* margin:10px; */
+  border: 1px solid #ccc;
+  font-size: 16px; /* Плавное выделение */
+}
+
+.checkout-contact-line textarea:focus {    /* Цвет рамки при фокусе */
+  border-color: #787878;
+  outline: none;             /* Убираем стандартное выделение */
+}
+
+.checkout-delivery {
+  padding:0 40px;
+  display:flex;
+  flex-direction: column;
+  gap:20px;
+}
+
+.orgRequired {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.2s ease;
+  margin-top: -20px;
+}
+
+.orgRequired.show {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 0;
+}
+
+@media (max-width: 950px) {
+
+  .checkout-section {
+    /* padding: 0 10px; */
+  }
+
+  .checkout-wrap {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .checkout-contact-list {
+    width:100%;
+    padding: 0;
+  }
+
+  .checkout-panel {
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+
+  .checkout-contact-line {
+    flex-wrap: wrap;
+  }
+
+
+  .checkout-country {
+    width:100%;
+  }
+
+  .checkout-delivery {
+    padding: 0;
+  }
+
+  .checkout-item-wrap {
+    width:100%;
+    
+  }
+}
+
 

@@ -1,148 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nortex</title>
-  <link rel="stylesheet" type="text/css" href="./styles/styles.css">
-  <link rel="stylesheet" type="text/css" href="./styles/product.css">
-  <link rel="stylesheet" type="text/css" href="./styles/modal.css">
-  <link rel="stylesheet" type="text/css" href="./styles/review.css">
-  <link rel="stylesheet" type="text/css" href="./styles/checkout.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nortex</title>
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/product.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/modal.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/checkout.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-</head>
+  <body>
+    <div id="app">
+      <div id="header"></div>
 
+      <main>
+        <section class="navigation-feed">
+          <a href="./index.html">Дом</a> > <a href="./contacts.html">Кошик</a>
+        </section>
 
-<body>
-  <div id="app">
-    
-    <div id="header"></div> 
-
-    <main>
-
-      <section class="navigation-feed"><a href="./index.html">Дом</a> > <a href="./contacts.html">Кошик</a></section>
-
-      <section class="checkout-section">
-
-        <div class="checkout-title">
-          <h1>Кошик</h1>
-        </div>
-
-        <div class="checkout-wrap">
-          
-          <div class="checkout-contact-list">
-            <div class="checkout-contact">
-              <h3><b>Контакти</b></h3>
-              <input id='email' class="checkout-input" name="email" type="text" placeholder="Email">
-            </div>
-
-            <div class="checkout-contact">
-              <h3><b>Адреса доставки</b></h3>
-              
-              <div class="checkout-contact-line">
-                <select id="country" name="country" class="checkout-country">
-                <option value="ua">🇺🇦 Україна</option>
-                <option value="pl">🇵🇱 Польща</option>
-                <option value="de">🇩🇪 Німеччина</option>
-                <option value="us">🇺🇸 США</option>
-                <option value="fr">🇫🇷 Франція</option>
-              </select>
-              </div>
-              <div class="checkout-contact-line">
-                <input id='name' class="checkout-input" name="name" type="text" placeholder="Iм'я">
-                <input id='last-name' class="checkout-input" name="name" type="text" placeholder="Прізвище">
-              </div>
-              <div class="checkout-contact-line">
-                <input id='adress' class="checkout-input" name="adress" type="text" placeholder="Компанія (обов'язково для бізнес-адрес)">
-              </div>
-              <div class="checkout-contact-line">
-                <input id='adress' class="checkout-input" name="adress" type="text" placeholder="Адреса">
-              </div>
-              
-            </div>
-
-
+        <section class="checkout-section">
+          <div class="checkout-title">
+            <h1>Оформлення замовлення</h1>
           </div>
-
-          <div class="checkout-item-wrap">
-            <div class="checkout-item-list">
-              <div class="checkout-item">
-                
-                <div class="checkout-item-image">
-                  <img src="./assets/img/products/mig250-1.jpg" />
-                </div>
-                
-                <div class="checkout-item-text">
-                  <div class="checkout-item-text-name">
-                    <p><b>Nortex MIG 250P Зварювальний апарат x1</b></p>
-                  </div>
-                  <div class="checkout-item-text-short">
-                    <p>Максимальний робочий струм: 160 А (MIG), 140 А (MMA)<br>
-  Робоча напруга: 230 В (1 фаза)<br>
-  Діаметр електродів: 1.6 – 4.0 мм<br>
-  Діаметр зварювального дроту: 0.8 – 1.0 мм<br></p>
-                    
-                    
+          <form id="checkoutForm">
+            <div class="checkout-wrap">
+              <div class="checkout-contact-list">
+                <div class="checkout-panel">
+                  <h3><b>1. Контакти</b></h3>
+                  <div class="checkout-contact-line">
+                    <input
+                      id="email"
+                      class="checkout-input"
+                      name="email"
+                      type="text"
+                      placeholder="Email"
+                      required
+                    />
+                    <input
+                      id="phone"
+                      class="checkout-input"
+                      name="phone"
+                      type="text"
+                      placeholder="Телефон (необов'язково)"
+                    />
                   </div>
                 </div>
-                
+
+                <div class="checkout-panel">
+                  <h3><b>2. Спосіб доставки</b></h3>
+
+                  <div class="checkout-delivery">
+                    <div class="radio-group">
+                      <label>
+                        <input
+                          type="radio"
+                          name="delivery"
+                          value="nova_branch"
+                          required
+                        />
+                        Самовивіз із відділення «Нова Пошта» (тариф перевізника)
+                      </label>
+                    </div>
+
+                    <div class="radio-group">
+                      <label>
+                        <input
+                          type="radio"
+                          name="delivery"
+                          value="nova_courier"
+                        />
+                        Кур'єр Нова Пошта
+                      </label>
+                    </div>
+
+                    <div class="radio-group">
+                      <label>
+                        <input
+                          type="radio"
+                          name="delivery"
+                          value="store_pickup"
+                          checked
+                        />
+                        Самовивіз із складу
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="checkout-panel">
+                  <h3><b>3. Адреса доставки</b></h3>
+
+                  <div class="checkout-contact-line">
+                    <select
+                      id="country"
+                      name="country"
+                      class="checkout-country"
+                    >
+                      <option value="ua">🇺🇦 Україна</option>
+                      <option value="pl">🇵🇱 Польща</option>
+                      <option value="de">🇩🇪 Німеччина</option>
+                      <option value="us">🇺🇸 США</option>
+                      <option value="fr">🇫🇷 Франція</option>
+                    </select>
+                  </div>
+                  <div class="checkout-contact-line">
+                    <input
+                      id="fname"
+                      class="checkout-input"
+                      name="fname"
+                      type="text"
+                      placeholder="Iм'я"
+                      required
+                    />
+                    <input
+                      id="lname"
+                      class="checkout-input"
+                      name="lname"
+                      type="text"
+                      placeholder="Прізвище"
+                      required
+                    />
+                  </div>
+                  <div class="checkout-contact-line">
+                    <input
+                      id="adressOrg"
+                      class="checkout-input"
+                      name="company"
+                      autocomplete="organization"
+                      type="text"
+                      placeholder="Компанія (обов'язково для бізнес-адрес)"
+                    />
+                  </div>
+                  <div class="checkout-contact-line">
+                    <input
+                      id="adress"
+                      class="checkout-input"
+                      name="adress"
+                      type="text"
+                      placeholder="Адреса"
+                      required
+                    />
+                  </div>
+                  <div class="checkout-contact-line">
+                    <input
+                      id="city"
+                      class="checkout-input"
+                      name="city"
+                      type="text"
+                      placeholder="Місто"
+                      required
+                    />
+                    <input
+                      id="zip"
+                      class="checkout-input"
+                      name="zip"
+                      type="text"
+                      placeholder="Поштовий індекс"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="checkout-panel">
+                  <h3><b>4. Тип платника</b></h3>
+                  <div class="checkout-delivery">
+                    <div class="radio-group">
+                      <label>
+                        <input
+                          type="radio"
+                          name="payerType"
+                          value="person"
+                          checked
+                          required
+                        />
+                        Фізична особа
+                      </label>
+                    </div>
+
+                    <div class="radio-group">
+                      <label>
+                        <input
+                          type="radio"
+                          name="payerType"
+                          value="nova_courier"
+                        />
+                        Юридична особа (компанія)
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="checkout-panel">
+                  <h3><b>5. Реквізити для рахунку</b></h3>
+
+                  <label>
+                    <input type="checkbox" id="sameAsDelivery" checked />
+                    Використати адресу доставки
+                  </label>
+
+                  <div class="checkout-contact-line">
+                    <select
+                      id="country"
+                      name="country"
+                      class="checkout-country"
+                    >
+                      <option value="ua">🇺🇦 Україна</option>
+                      <option value="pl">🇵🇱 Польща</option>
+                      <option value="de">🇩🇪 Німеччина</option>
+                      <option value="us">🇺🇸 США</option>
+                      <option value="fr">🇫🇷 Франція</option>
+                    </select>
+                  </div>
+                  <div class="checkout-contact-line">
+                    <input
+                      id="fname"
+                      class="checkout-input"
+                      name="fname"
+                      type="text"
+                      placeholder="Iм'я"
+                    />
+                    <input
+                      id="lname"
+                      class="checkout-input"
+                      name="lname"
+                      type="text"
+                      placeholder="Прізвище"
+                    />
+                  </div>
+                  <div class="checkout-contact-line orgRequired">
+                    <input
+                      id="companyName"
+                      class="checkout-input"
+                      name="company"
+                      autocomplete="organization"
+                      type="text"
+                      placeholder="Компанія (обов'язково для бізнес-адрес)"
+                    />
+                  </div>
+                  <div class="checkout-contact-line orgRequired">
+                    <input
+                      id="companyNumber"
+                      class="checkout-input"
+                      name="companyNumber"
+                      autocomplete="companyNumber"
+                      type="text"
+                      placeholder="ЄДРПОУ або ІПН"
+                    />
+                  </div>
+                  <div class="checkout-contact-line">
+                    <input
+                      id="adress"
+                      class="checkout-input"
+                      name="adress"
+                      type="text"
+                      placeholder="Адреса"
+                    />
+                  </div>
+                  <div class="checkout-contact-line">
+                    <input
+                      id="city"
+                      class="checkout-input"
+                      name="city"
+                      type="text"
+                      placeholder="Місто"
+                    />
+                    <input
+                      id="zip"
+                      class="checkout-input"
+                      name="zip"
+                      type="text"
+                      placeholder="Поштовий індекс"
+                    />
+                  </div>
+                </div>
+
+                <div class="checkout-panel">
+                  <h3><b>6. Коментар до замовлення</b></h3>
+
+                  <div class="checkout-contact-line">
+                    <textarea
+                      id="orderComment"
+                      class="checkout-input"
+                      name="orderComment"
+                      placeholder="Ваш коментар до замовлення (необов'язково)"
+                    ></textarea>
+                  </div>
+                </div>
               </div>
-            
+
+              <div id="checkout-item" class="checkout-item-wrap"></div>
             </div>
-            <div class="checkout-subtotal">
-              <p><b>Проміжна ціна:</b><span>1890грн</span></p>
-              <p><b>Доставка:</b><span>безкоштовно</span></p>
-              <p><b>Податки(19%):</b><span>206грн</span></p>
-              <div class="checkout-total">
-                <p><b>Всього за товар:</b><span>1890грн</span></p>
-              </div>
-              
-              
-            </div>
+          </form>
+        </section>
+      </main>
+
+      <footer>
+        <div id="footer" class="footer-content">
+          <div class="footer-logo">
+            <img src="./assets/img/nortex-logo-white.svg" />
           </div>
-
-
-          
-
+          <div class="footer-assortment">
+            <h4>Асортимент</h4>
+            <p class="footer-text-white">Зварювальний апарат D-01е</p>
+            <p class="footer-text-white">Зварювальний апарат D-210w</p>
+            <p class="footer-text-white">Зварювальний апарат D-212</p>
+          </div>
+          <div class="footer-info">
+            <h4>Інформація</h4>
+            <p class="footer-text-white">Контакти</p>
+            <p class="footer-text-white">Про нас</p>
+          </div>
+          <div class="footer-contacts">
+            <h4>Контакти</h4>
+            <p class="footer-text-white">nortex@gmail.com</p>
+            <p class="footer-text-white">+4 000 00 00 00</p>
+            <p class="footer-text-white">+4 000 00 00 00</p>
+          </div>
         </div>
-      </section>
-
-
-        
-    </main>
-    
-    <footer>
-      <div id='footer' class="footer-content">
-        <div class="footer-logo">
-          <img src="./assets/img/nortex-logo-white.svg" />
-        </div>
-        <div class="footer-assortment">
-          <h4>Асортимент</h4>
-          <p class="footer-text-white">Зварювальний апарат D-01е</p>
-          <p class="footer-text-white">Зварювальний апарат D-210w</p>
-          <p class="footer-text-white">Зварювальний апарат D-212</p>
-        </div>
-        <div class="footer-info">
-          <h4>Інформація</h4>
-          <p class="footer-text-white">Контакти</p>
-          <p class="footer-text-white">Про нас</p>
-        </div>
-        <div class="footer-contacts">
-          <h4>Контакти</h4>
-          <p class="footer-text-white">nortex@gmail.com</p>
-          <p class="footer-text-white">+4 000 00 00 00</p>
-          <p class="footer-text-white">+4 000 00 00 00</p>
-        </div>
-      </div>
-    </footer>
-  </div>
-  <script type="module" src="./scripts/index.js"></script>
-  <script type="module" src="./scripts/product.js"></script>
-  <script type="module" src="./scripts/rating.js"></script>
-  
-  
-</body>
+      </footer>
+    </div>
+    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/checkout.js"></script>
+  </body>
 </html>

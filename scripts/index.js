@@ -4,7 +4,7 @@ import { generateHeader } from "./header.js";
 import { generateFooter } from "./footer.js";
 import { generateGallery } from "./gallery.js";
 import { getTranslatedPageLink } from "./header.js";
-import { getCurrentLang } from './header.js';
+import { getCurrentLang } from './utils.js';
 import { products as productsEng } from './products-en.js';
 import { products as productsUkr } from './products.js';
 

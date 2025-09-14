@@ -1,11 +1,12 @@
 // ===== 1. Импорты и данные =====
 import { productTextsUA } from './translations-ua.js';
 import { productTextsEN } from './translations-eng.js';
-import { getCurrentLang } from './header.js';
+import { getCurrentLang } from './utils.js';
 import { products as productsEng } from './products-en.js';
 import { products as productsUkr } from './products.js';
 import { createReviewSection } from './rating.js';
 import { getReviewsByProduct } from "./addReview.js";
+import { getProductFromURL } from './utils.js';
 
 // ===== 0. узнаём язык браузера и выбираем соответствующий перевод.
 
@@ -15,10 +16,11 @@ const t = lang === 'eng' ? productTextsEN : productTextsUA;
 
 // ===== 1. ищем продукт по ID из URL
 
-const id = new URLSearchParams(window.location.search).get('id');
-const product = products.find((x) => x.id == id);
+// const id = new URLSearchParams(window.location.search).get('id');
+// const product = products.find((x) => x.id == id);
+// window.product = product;
 
-window.product = product;
+product = getProductFromURL(products);
 
 export let currentReviews = []; // глобальная переменная
 
@@ -82,6 +84,8 @@ function createParameters(parameters) {
 
 // Навешиваем обработчики на РЕВЬЮ после того, как страница рендернулась
 
+  // Определяем страницу продукта в зависимости от языка
+  const productPage = lang === 'eng' ? 'checkout-eng.html' : 'checkout.html';
 
 // ===== 3. Рендеринг =====
 async function renderProduct(product) {
@@ -94,7 +98,7 @@ async function renderProduct(product) {
           <div class="product-price">
             <a><span>${product.price}</span>${t.currency}</a>
           </div>
-          <a href="https://buy.stripe.com/7sY3cu0XO0aLa9v7kD3wQ00" class="product-buy-btn">${t.buy}</a>
+          <a href="./${productPage}?id=${product.id}" class="product-buy-btn">${t.buy}</a>
         </div>
         <div class="product-short-row"><a>${product.shortDescription}</a></div>
         <div class="product-phone-row">

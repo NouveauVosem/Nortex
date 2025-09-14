@@ -1,4 +1,4 @@
-import { getCurrentLang } from './header.js';
+import { getCurrentLang } from './utils.js';
 
 function generateGalleryItem (product) {
 
@@ -56,9 +56,11 @@ function generateGalleryItem (product) {
               </div>
 
               <div class="product-btn-wrap">
-                <button class="btn-product">
-                <a href="./${productPage}?id=${product.id}">${t.more}</a>
-                </button>
+                <a href="./${productPage}?id=${product.id}">
+                  <button class="btn-product">
+                    ${t.more}
+                  </button>
+                </a>
               </div>
               
             </div>`

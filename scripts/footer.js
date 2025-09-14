@@ -1,4 +1,4 @@
-import { getCurrentLang } from './header.js';
+import { getCurrentLang } from './utils.js';
 
 export function generateFooter() {
 

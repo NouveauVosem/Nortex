@@ -1,3 +1,4 @@
+import { getCurrentLang } from "./utils.js";
 
 export function toggleMenu() {
   document.querySelector(".menu-container").classList.toggle("menu-open");
@@ -35,10 +36,8 @@ export function getTranslatedPageLink(targetLang) {
 const translatedLink = getTranslatedPageLink();
 console.log(translatedLink);
 
-export function getCurrentLang() {
-  const filename = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
-  return filename.includes('-eng') ? 'eng' : 'ukr';
-}
+
+
 
 export function generateHeader() {
 
