@@ -27,14 +27,48 @@
         </section>
 
         <section class="thank-you-section">
-          <div class="thank-you-greeting">
-            <h1>Дякуємо за замовлення!</h1>
-            <p>Ваше замовлення успішно оформлено.</p>
-            <p id="orderId"></p>
+          <div class="checkout-title">
+            <h1>Статус замовлення</h1>
           </div>
-          <div class="order-summary">
 
+          <div class="thank-you-wrap">
+            <div class="thank-you-greeting">
+              <h1>Дякуємо за замовлення!</h1>
+            </div>
+            <div class="summary-code">
+              <p>Номер замовлення: <span id="orderId"></span></p>
+            </div>
           </div>
+
+          <div class="order-status-wrap">
+            <div class="order-status-title">Статус замовлення</div>
+            <div class="order-stages">
+              <div class="order-stage">
+                <div class="order-stage-circle active-stage"></div>
+                <div class="order-stage-text active-stage">Прийнято</div>
+                <div class="order-stage-line"></div>
+              </div>
+              <div class="order-stage active-stage">
+                <div class="order-stage-circle"></div>
+                <div class="order-stage-text">Оплачено</div>
+                <div class="order-stage-line active"></div>
+              </div>
+              <div class="order-stage active-stage">
+                <div class="order-stage-circle"></div>
+                <div class="order-stage-text">Відправлено</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-summary">
+            <div class="order-summary-line">
+              Дата замовлення: <span>14 14 4441</span>
+            </div>
+            <div class="order-summary-line">Товар: <span>14 14 4441</span></div>
+            <div class="order-summary-line">Email: <span>14 14 4441</span></div>
+          </div>
+
+          <div class="order-faktura-btn">Завантажити рахунок у PDF</div>
         </section>
       </main>
 
