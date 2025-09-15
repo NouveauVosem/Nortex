@@ -24,7 +24,7 @@ import { getDatabase, ref, push, set, onValue, get } from "https://www.gstatic.c
 // 2. Получаем объект базы данных
 const db = getDatabase(app);
 
-//--------------------------SET REVIEW--------------------------
+//--------------------------ADD REVIEW--------------------------
 
 // 3. экспортируем Функцию для добавления отзыва в базу данных
 export function addReview(reviewData) {
@@ -81,7 +81,7 @@ export async function debugReadAllReviews() {
   }
 }
 
-debugReadAllReviews();
+// debugReadAllReviews();
 
 
 export let currentReviews=[];
@@ -104,6 +104,21 @@ export async function getReviewsByProduct(productId) {
     console.error("❌ Ошибка чтения:", err);
     return [];
   }
+}
+
+export function addOrder(orderData) {
+  const dateNow = new Date().toLocaleDateString("uk-UA");
+
+  //Создаём ссылку на ветку в базе данных: orders/ID_Заказа
+  const ordersRef = ref(db, `orders/${orderData.orderId}`);
+
+  // Создаём уникальный ключ для новой записи
+  const newReviewRef = push(ordersRef);
+  
+  // Сохраняем переданный объект reviewData под этим уникальным ключом
+  return set(newReviewRef, orderData)
+    .then(() => console.log("заказ добавлен:", orderData))
+    .catch((error) => console.error("Ошибка сохранения:", error));
 }
 
 window.getReviewsByProduct = getReviewsByProduct;

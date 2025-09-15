@@ -1,1 +1,3 @@
 footer stick to bottom
+
+console.log(formData); -undefined - checkout.js 148

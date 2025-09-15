@@ -30,3 +30,9 @@ export function getCurrentLang() {
   return filename.includes('-eng') ? 'eng' : 'ukr';
 };
 
+export function generateOrderId() {
+      const timestamp = Date.now().toString(36); // текущее время в base36
+      const random = Math.floor(Math.random() * 1e6).toString(36); // случайная часть в base36
+      return timestamp + "-" + random; // например: "kx1j2a-4f3g9"
+    }
+

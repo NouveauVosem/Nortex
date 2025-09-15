@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Генератор ID заказа</title>
+</head>
+<body>
+  <button id="generate">Сгенерировать ID заказа</button>
+  <p id="orderId"></p>
+
+  <script>
+    async function generateOrderId() {
+      const userId = "12345"; // можно менять для каждого пользователя
+      const timestamp = Date.now().toString();
+      const random = Math.floor(Math.random() * 1000000).toString(); // добавляем случайность
+      const data = userId + "-" + timestamp + "-" + random;
+
+      // создаём SHA-256 хэш
+      const encoder = new TextEncoder();
+      const dataBuffer = encoder.encode(data);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', dataBuffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+      // берём первые 8 символов для компактного ID
+      return hashHex.slice(0, 8);
+    }
+
+    document.getElementById("generate").addEventListener("click", async () => {
+      const orderId = await generateOrderId();
+      document.getElementById("orderId").textContent = orderId;
+    });
+  </script>
+</body>
+</html>

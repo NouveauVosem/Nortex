@@ -98,7 +98,7 @@ input:required {
 
 .checkout-item-text {
   width:100%;
-  padding-left:20px !important;
+  padding-left:20px ;
   display:flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -154,6 +154,29 @@ input:required {
   transition: all 0.25s ease;
   box-sizing: border-box;
 }
+
+/* .checkout-input:invalid {
+  border-color: red;
+} */
+
+.checkout-input:invalid:focus {
+  outline: 2px solid red;
+}
+
+.checkout-contact-line a {
+  text-underline-offset: 4px;
+  text-decoration: none;
+}
+
+.checkout-contact-line a:hover {
+  text-underline-offset: 4px;
+  text-decoration: underline;
+}
+
+label {
+  cursor:pointer;
+}
+
 
 /* On focus */
 .checkout-input:focus {
@@ -285,10 +308,14 @@ input:required {
 }
 
 .checkout-delivery {
-  padding:0 40px;
+  padding-left: 40px;
   display:flex;
   flex-direction: column;
   gap:20px;
+}
+
+.checkout-padded-line {
+  padding-left:0px;
 }
 
 .orgRequired {
@@ -342,6 +369,19 @@ input:required {
   .checkout-item-wrap {
     width:100%;
     
+  }
+
+  .checkout-item {
+    flex-direction: column;
+  }
+
+  .checkout-item-text {
+    padding-top:20px;
+    padding-left:0px;
+  }
+
+  .checkout-total {
+    font-size: 18px;
   }
 }
 

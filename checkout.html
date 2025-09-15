@@ -200,7 +200,7 @@
                 <div class="checkout-panel">
                   <h3><b>5. Реквізити для рахунку</b></h3>
 
-                  <label>
+                  <label class="checkout-padded-line">
                     <input type="checkbox" id="sameAsDelivery" checked />
                     Використати адресу доставки
                   </label>
@@ -254,15 +254,7 @@
                       placeholder="ЄДРПОУ або ІПН"
                     />
                   </div>
-                  <div class="checkout-contact-line">
-                    <input
-                      id="adress"
-                      class="checkout-input"
-                      name="adress"
-                      type="text"
-                      placeholder="Адреса"
-                    />
-                  </div>
+
                   <div class="checkout-contact-line">
                     <input
                       id="city"
@@ -283,7 +275,6 @@
 
                 <div class="checkout-panel">
                   <h3><b>6. Коментар до замовлення</b></h3>
-
                   <div class="checkout-contact-line">
                     <textarea
                       id="orderComment"
@@ -291,6 +282,21 @@
                       name="orderComment"
                       placeholder="Ваш коментар до замовлення (необов'язково)"
                     ></textarea>
+                  </div>
+                </div>
+
+                <div class="checkout-panel">
+                  <h3><b>7. Підтвердження умов покупки</b></h3>
+                  <div class="checkout-contact-line">
+                    <label class="checkout-padded-line">
+                      <input
+                        class="radio-group"
+                        type="checkbox"
+                        id="terms"
+                        required
+                      />
+                      Я погоджуюсь з <a href="./terms.html">умовами договору купівлі-продажу</a>
+                    </label>
                   </div>
                 </div>
               </div>
