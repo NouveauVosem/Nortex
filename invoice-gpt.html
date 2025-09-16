@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Рахунок-фактура</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      color: #282922;
+    }
+
+    .invoice-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #F8F7FC;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid #DC4B22;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      color: #DC4B22;
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .section-title {
+      font-weight: bold;
+      margin: 15px 0 8px;
+      font-size: 16px;
+      color: #DC4B22;
+    }
+
+    .info-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 15px;
+    }
+
+    .info-box p {
+      margin: 2px 0;
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table thead {
+      background: #DC4B22;
+      color: #fff;
+    }
+
+    table th, table td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    .total-row {
+      font-weight: bold;
+      background: #F8F7FC;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 12px;
+      text-align: center;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="invoice-container">
+    <header>
+      <h1>Рахунок-фактура</h1>
+      <div>
+        <p><strong>№:</strong> INV-2025-001</p>
+        <p><strong>Дата:</strong> 16.09.2025</p>
+      </div>
+    </header>
+
+    <!-- Продавець -->
+    <div class="section-title">Продавець</div>
+    <div class="info-box">
+      <p><strong>ТОВ «Nortex»</strong></p>
+      <p>ЄДРПОУ: 1234567890</p>
+      <p>Адреса: м. Київ, вул. Промислова, 25</p>
+      <p>Тел: +380 (44) 123-45-67</p>
+      <p>Банк: АТ «Райффайзен Банк»</p>
+      <p>IBAN: UA1234567890000260078901234</p>
+    </div>
+
+    <!-- Покупець -->
+    <div class="section-title">Покупець</div>
+    <div class="info-box">
+      <p><strong>ТОВ «КлієнтБуд»</strong></p>
+      <p>ЄДРПОУ: 9988776655</p>
+      <p>Адреса: м. Львів, вул. Зеленa, 10</p>
+      <p>Email: client@example.com</p>
+      <p>Тел: +380 (32) 222-33-44</p>
+    </div>
+
+    <!-- Таблиця товарів -->
+    <table>
+      <thead>
+        <tr>
+          <th>№</th>
+          <th>Назва товару</th>
+          <th>Кількість</th>
+          <th>Ціна, грн</th>
+          <th>Сума, грн</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Зварювальний апарат «Nortex-300»</td>
+          <td>1</td>
+          <td>25 000.00</td>
+          <td>25 000.00</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Електроди для зварювання (5 кг)</td>
+          <td>2</td>
+          <td>1 200.00</td>
+          <td>2 400.00</td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="4" align="right">Всього без ПДВ:</td>
+          <td>27 400.00</td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="4" align="right">ПДВ (20%):</td>
+          <td>5 480.00</td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="4" align="right">До сплати:</td>
+          <td>32 880.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer>
+      <p>Дякуємо за замовлення у ТОВ «Nortex»</p>
+    </footer>
+  </div>
+</body>
+</html>

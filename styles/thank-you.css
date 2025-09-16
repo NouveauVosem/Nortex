@@ -185,7 +185,7 @@
 .order-summary { 
   width:100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   position: relative;
@@ -193,16 +193,31 @@
   /* border-radius: 8px; */
   padding:40px 40px;
   background-color: #666; 
+  gap:40px;
+}
+
+.order-summary-column {
+  width:50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center !important;
+
 }
 
 .order-summary-line {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  width:100%;
   font-size: 18px;
   color:white;
   
 }
 
 .order-summary-line {
-  width: 50%;
+  width: 80%;
   display: flex;
   justify-content: space-between !important; /* текст слева, span справа */
   padding: 5px 0;

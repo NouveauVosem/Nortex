@@ -75,7 +75,7 @@ function placeOrder() {
   const formData = {
     // id заказа
     orderId: generateOrderId(),
-
+    orderStatus:"accepted",
     // id и название товара
     productId: product.id,
     productName: product.name,
@@ -88,7 +88,7 @@ function placeOrder() {
     phone: document.getElementById("phone").value,
 
     // Дата
-    dateNow: new Date().toLocaleDateString("uk-UA"),
+    date: new Date().toLocaleDateString("uk-UA"),
 
     // Адрес доставки
     country: document.getElementById("country").value,
@@ -147,6 +147,7 @@ function placeOrder() {
     .then((data) => {
       console.log(data);
       // window.location.href = "thank-you.html";
+      localStorage.setItem("lastOrder", JSON.stringify(formData));
       window.location.href = `thank-you.html?orderId=${encodeURIComponent(formData.orderId)}`;
     })
     .catch((error) => console.log(error));
