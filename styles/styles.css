@@ -4,6 +4,16 @@
   color:#282922;
 }
 
+:root {
+  --color-primary: #DC4B22;  
+  --color-secondary: #90b913; 
+  --color-accent: #ff4D00;    
+  --color-midgrey: #666;
+  --color-border: #ccc;
+  --color-light-surface: #F8F7FC;   
+  --color-text: #272727;      
+}
+
 body {
   width:100vw;
   display:block;

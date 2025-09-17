@@ -1,12 +1,4 @@
-:root {
-  --color-primary: #DC4B22;  
-  --color-secondary: #90b913; 
-  --color-accent: #ff4D00;    
-  --color-midgrey: #666;
-  --color-border: #ccc;
-  --color-light-surface: #F8F7FC;   
-  --color-text: #272727;      
-}
+
 
 .invoice-section {
   min-height: 100vh;
@@ -21,6 +13,7 @@
 }
 
 .invoice {
+  margin:30px;
   font-size: 14px;
   width: 900px;
   border: 3px solid #ccc;
@@ -80,7 +73,6 @@
 .invoice-column {
   display: flex;
   flex-direction: column;
-
   gap: 4px;
   margin-bottom: 40px;
 }
@@ -285,6 +277,7 @@ th {
   padding: 20px 0;
   display:flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .sign-image {
@@ -295,5 +288,44 @@ th {
 
 .sign-image img {
   width:100%;
+}
+
+.invoice-summary-right {
+  margin-left:auto;
+}
+
+.summary-total-box {
+  margin-top:20px;
+  padding:16px 20px;
+  background-color: var(--color-primary);
+  display:flex;
+  justify-content: flex-end;
+  gap:20px;
+  align-items:first baseline;
+  
+}
+
+.summary-total-box div {
+  color:white;
+}
+
+.summary-total-box-text {
+  
+}
+
+.summary-total-box-number {
+  color:white;
+  font-size: large;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.invoice-footer {
+  color: var(--color-midgrey);
+  display:flex;
+  height:120px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 

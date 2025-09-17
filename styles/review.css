@@ -300,6 +300,7 @@
 }
 
 .first-review span {
+  color: var(--color-accent);
   text-align: center;
   font-size: 32px;
   font-weight: 700;
