@@ -75,8 +75,8 @@ function placeOrder() {
   const formData = {
     // id заказа
     orderId: generateOrderId(),
-    orderStatus:"accepted",
-    // id и название товара
+    orderStatus: "accepted",
+    // id и название товара accepted
     productId: product.id,
     productName: product.name,
     productPrice: product.price,
@@ -89,6 +89,12 @@ function placeOrder() {
 
     // Дата
     date: new Date().toLocaleDateString("uk-UA"),
+    payDate: (() => {
+      const today = new Date();
+      const future = new Date(today);
+      future.setDate(today.getDate() + 14);
+      return future.toLocaleDateString("uk-UA");
+    })(),
 
     // Адрес доставки
     country: document.getElementById("country").value,
@@ -148,7 +154,9 @@ function placeOrder() {
       console.log(data);
       // window.location.href = "thank-you.html";
       localStorage.setItem("lastOrder", JSON.stringify(formData));
-      window.location.href = `thank-you.html?orderId=${encodeURIComponent(formData.orderId)}`;
+      window.location.href = `thank-you.html?orderId=${encodeURIComponent(
+        formData.orderId
+      )}`;
     })
     .catch((error) => console.log(error));
 }

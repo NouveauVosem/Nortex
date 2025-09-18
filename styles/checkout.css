@@ -160,7 +160,7 @@ input:required {
 } */
 
 .checkout-input:invalid:focus {
-  outline: 2px solid red;
+  outline: 2px solid var(--color-accent);
 }
 
 .checkout-contact-line a {

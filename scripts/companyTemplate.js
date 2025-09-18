@@ -19,9 +19,13 @@ export const companyTemplate = {
 
   // Банківські реквізити
   bankName: "АТ «Райффайзен Банк»",
+  accNumber: "7581929",
+  bankNumber: "055",
   bankBIC: "380805",                        // МФО банку
   bankAccount: "UA1234567890000260078901234", // Розрахунковий рахунок (IBAN)
-  corrAccount: "",                          // Необов'язкове поле в Україні
+  corrAccount: "",
+  swift:"RZB1UA2X",
+  constSymbol:"030",                          // Необов'язкове поле в Україні
 
   // Додаткові поля
   vatRate: "20%", 

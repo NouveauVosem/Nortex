@@ -76,7 +76,7 @@ export const products = [
   },
   { name: 'Nortex MIG 250 Зварювальний апарат ',
     id: 2,
-    price: '1890',
+    price: '2690',
     img: ['./assets/img/products/mig250-1.jpg'],
     power: '230',
     efficiency: '85',
@@ -154,7 +154,7 @@ export const products = [
   { 
   name: 'Подавач зварювального дроту',
   id: 3,
-  price: '1890',
+  price: '2250',
   img: [
     './assets/img/products/wireHolder-1.jpg',
     './assets/img/products/wireHolder-2.jpg',
@@ -187,7 +187,7 @@ export const products = [
 { 
   name: 'Плазморіз інверторний Nortex CUT-80 (80А)',
   id: 4,
-  price: '1890',
+  price: '2490',
   img: [
     './assets/img/products/cut-80-1.jpg',
     './assets/img/products/cut-80-2.jpg',
