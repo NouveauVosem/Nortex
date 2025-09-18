@@ -9,7 +9,6 @@ document.getElementById("orderId").textContent = orderId || "Не знайден
 const orderData = JSON.parse(localStorage.getItem("lastOrder"));
 console.log(orderData);
 
-
 // Словарь переводов
 const deliveryTranslations = {
   ukr: {
@@ -24,31 +23,64 @@ const deliveryTranslations = {
   },
 };
 
-
-
 function getDeliveryText(code, lang = "ukr") {
   return deliveryTranslations[lang]?.[code] || code;
 }
 
 function generateOrderSummary() {
-
-const  lang=getCurrentLang();
-console.log(lang);
+  const lang = getCurrentLang();
+  console.log(lang);
 
   document.getElementById("order-summary").innerHTML = `
         <div class="order-summary-column">
-        <div class="order-summary-line">Товар: <span>${orderData.productName}</span></div>
-        <div class="order-summary-line">Спосіб доставки: <span>${getDeliveryText(orderData.delivery, lang)}</span></div>
+        <div class="order-summary-line">Товар: <span>${
+          orderData.productName
+        }</span></div>
+        <div class="order-summary-line">Спосіб доставки: <span>${getDeliveryText(
+          orderData.delivery,
+          lang
+        )}</span></div>
             <div class="order-summary-line">
             Дата замовлення: <span>${orderData.date}</span>
             </div>      
         </div>
         <div class="order-summary-column">
-        <div class="order-summary-line">Покупець: <span>${orderData.firstName} ${orderData.lastName}</span></div>          
-      <div class="order-summary-line">Телефон: <span>${orderData.phone || "-"}</span></div>
-      <div class="order-summary-line">Email: <span>${orderData.email}</span></div>
+        <div class="order-summary-line">Покупець: <span>${
+          orderData.firstName
+        } ${orderData.lastName}</span></div>          
+      <div class="order-summary-line">Телефон: <span>${
+        orderData.phone || "-"
+      }</span></div>
+      <div class="order-summary-line">Email: <span>${
+        orderData.email
+      }</span></div>
         </div>
     `;
 }
 
 generateOrderSummary();
+
+function activateDownloadInvoice() {
+  document.getElementById("download-invoice").addEventListener("click", () => {
+    var element = document.getElementById("invoice");
+    var opt = {
+      margin: 0,
+      filename: "invoice.pdf",
+      image: { type: "jpeg", quality: 1 },
+      html2canvas: {
+        scrollX: 0,
+        scrollY: 0,
+        scale: 4,
+      },
+      jsPDF: { unit: "mm", format: "A4", orientation: "portrait" },
+    };
+
+    // New Promise-based usage:
+    html2pdf().set(opt).from(element).save();
+  });
+}
+
+activateDownloadInvoice();
+
+// // Old monolithic-style usage:
+// html2pdf(element, opt);

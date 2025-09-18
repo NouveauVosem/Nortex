@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>PDFMake Invoice</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+</head>
+<body>
+  <button onclick="generatePDF()">Завантажити PDF</button>
+
+  <script>
+    function generatePDF() {
+      // Дані по фактурі
+      const items = [
+        { description: "Товар A", quantity: 2, price: 500, total: 1000 },
+        
+      ];
+
+      const tableBody = [
+        ['Опис товару', 'К-сть', 'Ціна, грн', 'Сума, грн'],
+        ...items.map(i => [i.description, i.quantity.toString(), i.price.toString(), i.total.toString()])
+      ];
+
+      const totalAmount = items.reduce((sum, i) => sum + i.total, 0);
+
+      const docDefinition = {
+        content: [
+          { text: 'Фактура', style: 'header', alignment: 'center', margin: [0, 0, 0, 20] },
+
+          {
+            columns: [
+              [
+                { text: 'Продавець:', style: 'subheader' },
+                'ТОВ "Приклад"',
+                'Адреса: вул. Шевченка, 10, Київ, Україна',
+                'ЄДРПОУ: 12345678'
+              ],
+              [
+                { text: 'Покупець:', style: 'subheader' },
+                'ІП "Покупець"',
+                'Адреса: вул. Франка, 5, Львів, Україна',
+                'ІПН: 87654321'
+              ]
+            ],
+            columnGap: 50
+          },
+
+          { text: `\nНомер фактури: 001\nДата: 18.09.2025\n`, margin: [0, 10, 0, 10] },
+
+          {
+            table: {
+              headerRows: 1,
+              widths: ['*', 50, 70, 70],
+              body: tableBody
+            },
+            layout: {
+              fillColor: function (rowIndex, node, columnIndex) {
+                return rowIndex === 0 ? '#2980b9' : null;
+              },
+              hLineWidth: function () { return 0.5; },
+              vLineWidth: function () { return 0.5; },
+              hLineColor: function () { return '#000'; },
+              vLineColor: function () { return '#000'; },
+              paddingLeft: function () { return 5; },
+              paddingRight: function () { return 5; },
+              paddingTop: function () { return 3; },
+              paddingBottom: function () { return 3; },
+            },
+            style: 'table'
+          },
+
+          { text: `\nРазом до сплати: ${totalAmount} грн`, style: 'total', alignment: 'right' }
+        ],
+
+        styles: {
+          header: { fontSize: 18, bold: true },
+          subheader: { fontSize: 12, bold: true },
+          table: { margin: [0, 5, 0, 15] },
+          total: { fontSize: 14, bold: true }
+        },
+
+        defaultStyle: {
+          font: 'Roboto'
+        }
+      };
+
+      pdfMake.createPdf(docDefinition).download('faktura.pdf');
+    }
+  </script>
+</body>
+</html>

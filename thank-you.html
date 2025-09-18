@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="./styles/modal.css" />
     <link rel="stylesheet" type="text/css" href="./styles/checkout.css" />
     <link rel="stylesheet" type="text/css" href="./styles/thank-you.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/invoice.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -65,19 +66,259 @@
               <div class="order-summary-line">
                 Дата замовлення: <span>14 14 4441</span>
               </div>
-              <div class="order-summary-line">Товар: <span>14 14 4441</span></div>
-              <div class="order-summary-line">Email: <span>14 14 4441</span></div>
+              <div class="order-summary-line">
+                Товар: <span>14 14 4441</span>
+              </div>
+              <div class="order-summary-line">
+                Email: <span>14 14 4441</span>
+              </div>
             </div>
             <div class="order-summary-column">
               <div class="order-summary-line">
                 Дата замовлення: <span>14 14 4441</span>
               </div>
-              <div class="order-summary-line">Товар: <span>14 14 4441</span></div>
-              <div class="order-summary-line">Email: <span>14 14 4441</span></div>
+              <div class="order-summary-line">
+                Товар: <span>14 14 4441</span>
+              </div>
+              <div class="order-summary-line">
+                Email: <span>14 14 4441</span>
+              </div>
             </div>
           </div>
 
-          <div class="order-faktura-btn">Завантажити рахунок у PDF</div>
+          <div id="download-invoice" class="order-faktura-btn">
+            Завантажити рахунок у PDF
+          </div>
+
+          <div
+            id="invoice-wrapper"
+            style="
+              width: 206mm;
+              background: red;
+              height: 290mm;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position:fixed;
+              top:0px;
+              left: -999px;
+              
+            "
+          >
+            <div
+              id="invoice"
+              style="
+                height: 286mm;
+                width: 207mm;
+                
+                background: #fff;
+                color: blue;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between ;
+                
+              "
+            >
+              <div class="invoice">
+            <div class="invoice-head">
+              <div class="invoice-side-title">
+                Ідентифікаційні дані
+              </div>
+              <div class="invoice-head-left">
+                <div class="invoice-column-wrap">
+                  <div class="invoice-column">
+                    <div class="invoice-head-logo">
+                      <img src="./assets/img/nortex-logo-orange.png" />
+                    </div>
+                    <div class="invoice-head-line">
+                      Продавець
+                    </div>
+                    <div class="invoice-line"><strong> ТОВ «Nortex»</strong></div>
+                    <div class="invoice-line">Адреса: <span> м. Київ, вул. Промислова, 25</span></div>
+                    <div class="invoice-line">ЄДРПОУ: <span> 1234567890</span></div>
+                  </div>
+                  <div class="invoice-column invoice-column-last">
+                    <div class="invoice-head-line">
+                      Контакти
+                    </div>
+                    
+                    <div class="invoice-line">Тел: <span> +380 (44) 123-45-67</span></div>
+                    <div class="invoice-line">E-mail: <span> info@nortex.ua</span></div>
+                  </div>
+                  <div class="invoice-data-wrap"> 
+                    <div class="invoice-data">Дата виставлення: <span> 16.09.2025</span></div>
+                    <div class="invoice-data">Строк оплати:<span> 30.09.2025</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="invoice-head-right">
+                  <div class="invoice-head-line-r-wrap">
+                    <div class="invoice-head-line-r-title">
+                      <b>Рахунок-фактура</b>
+                    </div>
+                    <div class="invoice-head-code">
+                      <b>INV-2025-001</b>
+                    </div>
+                  </div>
+                <div class="invoice-column-r">
+                  
+                  <div class="invoice-head-line-r">
+                      Покупець
+                    </div>
+                    <div class="invoice-line"><strong> ТОВ «КлієнтБуд»</strong></div>
+                    <div class="invoice-line">ЄДРПОУ: <span> 9988776655</span></div>
+                    <div class="invoice-line">Адреса: <span> м. Львів, вул. Зеленa, 10</span></div>
+                    <div class="invoice-line">Тел: <span> +380 (44) 123-45-67</span></div>
+                  </div>
+
+              </div>
+            </div>
+            <div class="invoice-main">
+              <div class="invoice-side-title white">
+                Реквізитні дані
+              </div>
+              <div class="invoice-main-wrap">
+                <div class="invoice-main-column">
+                  <div class="invoice-main-headline">
+                    Рахунок
+                  </div>
+                  <div class="invoice-main-line">
+                    <span> 26009012345678/5500</span>
+                  </div>
+                  <div class="invoice-main-line">
+                    IBAN: <span> UA1234567890000260078901234</span>
+                  </div>
+                  <div class="invoice-main-line">
+                    SWIFT: <span> GHKLAS</span>
+                  </div>
+                </div>
+                
+                <div class="invoice-main-column">
+                  <div class="invoice-main-headline">
+                    Cимвол
+                  </div>
+                  <div class="invoice-main-line">
+                    Варіабельний: <span> 1759109</span>
+                  </div>
+                  <div class="invoice-main-line">
+                    Константний: <span> 0132</span>
+                  </div>
+                </div>
+                <div class="invoice-main-column-last">
+                  <div class="invoice-main-line">
+                    спосіб оплати: готівкою
+                  </div>
+                  <div class="invoice-main-total">
+                    До оплати: <span> 1 899,00 грн</span>
+                  </div>
+                </div>
+              </div>
+              <div class="invoice-main-qr-code">
+
+              </div>
+            </div>
+            <div class="invoice-list">
+              <div class="invoice-side-title">
+                Фактуруємо вам
+              </div>
+              <div class="invoice-list-wrap">
+              <div class="invoice-list-title">
+                Надсилаємо вам авансовий рахунок за замовлений товар або послугу:
+              </div>
+                <table class="invoice-table">
+                  <thead>
+                    <tr class="tr-first">
+                      <th class="th-first">Ідентифікатор поставки</th>
+                      <th>Кількість</th>
+                      <th>Ціна за од. виміру (грн)</th>
+                      <th>ПДВ %</th>
+                      <th>Без ПДВ</th>
+                      <th>Всього</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="th-first">Зварювальний апарат «Nortex-300»</td>
+                      <td>1 ks</td>
+                      <td>1890</td>
+                      <td>20%</td>
+                      <td>1575</td>
+                      <td class="td-last">1890,00 грн</td>
+                    </tr>
+                    <tr>
+                      <td class="th-first">Ще один товар</td>
+                      <td>2 ks</td>
+                      <td>1000</td>
+                      <td>20%</td>
+                      <td>833</td>
+                      <td class="td-last">1999,00 грн</td>
+                    </tr>
+                    <tr>
+                      <td class="th-first">Ще один товар</td>
+                      <td>2 ks</td>
+                      <td>1000</td>
+                      <td>20%</td>
+                      <td>833</td>
+                      <td class="td-last">1999,00 грн</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="invoice-list-message">
+                  Товар буде надіслано вам після отримання платежу на наш рахунок.
+                </div>
+              </div>
+              
+              
+
+            </div>
+              <div class="invoice-summary">
+                
+                <div class="invoice-side-title">
+                  Підсумок
+                </div>
+
+                <div class="invoice-summary-left">
+                  <div class="sign-text">
+                    Печатка і підпис:
+                  </div>
+                  <div class="sign-image">
+                    <img src="./assets/img/my-sign.jpg" />
+                  </div>
+                </div>
+                <div class="invoice-summary-right">
+                  <div class="invoice-summary-wrap">
+                    <table class="invoice-table">
+                      <thead>
+                        <tr class="tr-first">
+                          <th class="th-first">Ставка ПДВ</th>
+                          <th>Ціна без ПДВ</th>
+                          <th>Сума ПДВ</th>
+                          <th>Всього</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td >20%</td>
+                          <td>1 ks</td>
+                          <td>1890</td>
+                          <td>20%</td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="summary-total-box">
+                      <div class="summary-total-box-text">Разом до сплати:</div>
+                      <div class="summary-total-box-number">1 899,00 грн</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="invoice-footer">
+                Дякуємо за замовлення у ТОВ «Nortex»
+              </div>
+            </div>
+            </div>
+          </div>
         </section>
       </main>
 
@@ -107,8 +348,12 @@
       </footer>
     </div>
     <script type="module" src="./scripts/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
     <script type="module" src="./scripts/invoice.js"></script>
-    
     <script type="module" src="./scripts/thank-you.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
   </body>
 </html>

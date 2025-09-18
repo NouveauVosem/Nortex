@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Фактура</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    #invoice {
+      width: 600px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="invoice">
+    <h1>Фактура №123</h1>
+    <p>Дата: 18.09.2025</p>
+    <p>Клиент: Иван Иванов</p>
+    <p>Сумма: 10 000 ₽</p>
+  </div>
+
+  <button id="download">Скачать PDF</button>
+
+  <script>
+    document.getElementById("download").addEventListener("click", () => {
+      const element = document.getElementById("invoice");
+      html2pdf()
+        .from(element)
+        .set({
+          margin: 10,
+          filename: "faktura.pdf",
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+        })
+        .save();
+    });
+  </script>
+</body>
+</html>
