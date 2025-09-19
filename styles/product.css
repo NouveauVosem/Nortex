@@ -37,8 +37,13 @@
   /* min-height:505px; */
   max-height:600px;
   width: 100%;
-  aspect-ratio: 3 / 3 !important;
+  /* aspect-ratio: 3 / 3 !important; */
   position: relative;
+  overflow: hidden;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-gallery-main img{
@@ -83,7 +88,7 @@
 .product-price-row {
   display:flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: center;
 }
 
 .product-price {
@@ -615,6 +620,10 @@
   min-width:0;   /* важно для flex-контейнеров */
 }
 
+.product-gallery-main {
+  max-height: 480px;
+}
+
 .product-gallery-thumbs img {
   flex-shrink: 1; /* позволяет сжиматься */
   max-width: 100%; /* не превышать контейнер */
@@ -641,6 +650,8 @@
 /* .product-section > *:not(.product-wrap) {
   display: none !important;
 } */
+
+
 
 .product-gallery > *:not(.product-gallery-main):not(.product-gallery-thumbs) {
   display: none !important;
