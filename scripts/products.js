@@ -1,24 +1,30 @@
 export const products = [
-  { name: 'Nortex MIG 250P Зварювальний апарат ',
+  {
+    name: "Nortex MIG 250P",
+    type: "Зварювальний апарат",
     id: 1,
-    price: '1890',
+    code: "00.2222.25",
+    price: "1890",
+    visible: "true",
+    featured: "false",
+    inStock: "25",
+    alsoBuyId: ["1", "2", "3"],
     img: [
-      './assets/img/products/mig250p-1.jpg',
-      './assets/img/products/mig250p-2.jpg',
-      './assets/img/products/mig250p-3.jpg',
-      './assets/img/products/mig250p-4.jpg',
+      "./assets/img/products/mig250p-1.jpg",
+      "./assets/img/products/mig250p-2.jpg",
+      "./assets/img/products/mig250p-3.jpg",
+      "./assets/img/products/mig250p-4.jpg",
     ],
-    power: '230',
-    efficiency: '80',
-    electrodeDiameterMax: '5',
-    shortDescription:`
+    power: "230",
+    efficiency: "80",
+    electrodeDiameterMax: "5",
+    shortDescription: `
 Максимальний робочий струм: 160 А (MIG), 140 А (MMA)<br>
 Робоча напруга: 230 В (1 фаза)<br>
 Діаметр електродів: 1.6 – 4.0 мм<br>
 Діаметр зварювального дроту: 0.8 – 1.0 мм<br>
     `,
-    fullDescription: 
-`<b>MIG 250P</b> — це інверторний напівавтоматичний зварювальний апарат від компанії Nortex, 
+    fullDescription: `<b>MIG 250P</b> — це інверторний напівавтоматичний зварювальний апарат від компанії Nortex, 
 призначений для MIG/MAG та MMA зварювання. Підходить як для професійного використання, 
 так і для побутових потреб. Завдяки цифровому дисплею та простому інтерфейсу забезпечується 
 зручне керування параметрами зварювання.<br><br>  
@@ -60,35 +66,48 @@ export const products = [
 </ul>`,
 
     parameters: [
-    { label: "Модель", value: "MIG 250P" },
-    { label: "Тип зварювання", value: "MIG/MAG, MMA" },
-    { label: "Діапазон зварювального струму (MIG)", value: "60A / 17V – 160A / 22V" },
-    { label: "Живлення", value: "220 В / 50–60 Гц" },
-    { label: "Діапазон зварювального струму (MMA)", value: "30A / 21.2V – 140A / 25.6V" },
-    { label: "Робочий цикл", value: "<br>MIG: 60% при 160A, 100% при 124A<br>MMA: 60% при 140A, 100% при 119A" },
-    { label: "Максимальний струм", value: "28A" },
-    { label: "Клас захисту", value: "IP21S" },
-    { label: "Ізоляція", value: "F" },
-    { label: "Вихідна напруга холостого ходу", value: "56V" },
-    { label: "Підключення пальника", value: "стандартний євророз'єм" },
-    { label: "Додатково", value: "цифровий дисплей, кнопка перемикання режимів, розетки AC 36V" },
-  ]
+      { label: "Модель", value: "MIG 250P" },
+      { label: "Тип зварювання", value: "MIG/MAG, MMA" },
+      {
+        label: "Діапазон зварювального струму (MIG)",
+        value: "60A / 17V – 160A / 22V",
+      },
+      { label: "Живлення", value: "220 В / 50–60 Гц" },
+      {
+        label: "Діапазон зварювального струму (MMA)",
+        value: "30A / 21.2V – 140A / 25.6V",
+      },
+      {
+        label: "Робочий цикл",
+        value:
+          "<br>MIG: 60% при 160A, 100% при 124A<br>MMA: 60% при 140A, 100% при 119A",
+      },
+      { label: "Максимальний струм", value: "28A" },
+      { label: "Клас захисту", value: "IP21S" },
+      { label: "Ізоляція", value: "F" },
+      { label: "Вихідна напруга холостого ходу", value: "56V" },
+      { label: "Підключення пальника", value: "стандартний євророз'єм" },
+      {
+        label: "Додатково",
+        value: "цифровий дисплей, кнопка перемикання режимів, розетки AC 36V",
+      },
+    ],
   },
-  { name: 'Nortex MIG 250 Зварювальний апарат ',
+  {
+    name: "Nortex MIG 250 Зварювальний апарат ",
     id: 2,
-    price: '2690',
-    img: ['./assets/img/products/mig250-1.jpg'],
-    power: '230',
-    efficiency: '85',
-    electrodeDiameterMax: '5',
-     shortDescription:`
+    price: "2690",
+    img: ["./assets/img/products/mig250-1.jpg"],
+    power: "230",
+    efficiency: "85",
+    electrodeDiameterMax: "5",
+    shortDescription: `
 Максимальний робочий струм: 160 А (MIG), 140 А (MMA)<br>
 Робоча напруга: 230 В (1 фаза)<br>
 Діаметр електродів: 1.6 – 4.0 мм<br>
 Діаметр зварювального дроту: 0.8 – 1.0 мм<br>
     `,
-    fullDescription: 
-`<b>MIG 250Pb</b> — це інверторний напівавтоматичний зварювальний апарат від компанії Nortex, 
+    fullDescription: `<b>MIG 250Pb</b> — це інверторний напівавтоматичний зварювальний апарат від компанії Nortex, 
 призначений для MIG/MAG та MMA зварювання. Підходить як для професійного використання, 
 так і для побутових потреб. Завдяки цифровому дисплею та простому інтерфейсу забезпечується 
 зручне керування параметрами зварювання.<br><br>  
@@ -129,46 +148,46 @@ export const products = [
   <li>інструкція з експлуатації (паспорт) - 1 шт.</li>
 </ul>`,
     parameters: [
-  { label: "Модель", value: "Nortex MIG 250" },
-  { label: "Серійний номер", value: "241127102106" },
-  { label: "Режим зварювання (MIG)", value: "60A / 17V – 60A / 22V" },
-  { label: "Режим зварювання (MMA)", value: "30A / 21.2V – 140A / 25.6V" },
-  { label: "Напруга холостого ходу (U₀)", value: "56V" },
-  { 
-    label: "Робочий цикл", 
-    value: `<br/>
+      { label: "Модель", value: "Nortex MIG 250" },
+      { label: "Серійний номер", value: "241127102106" },
+      { label: "Режим зварювання (MIG)", value: "60A / 17V – 60A / 22V" },
+      { label: "Режим зварювання (MMA)", value: "30A / 21.2V – 140A / 25.6V" },
+      { label: "Напруга холостого ходу (U₀)", value: "56V" },
+      {
+        label: "Робочий цикл",
+        value: `<br/>
       MIG: 60% при 160A, 100% при 124A<br>
       MMA: 60% при 140A, 100% при 108A
-    `
+    `,
+      },
+      { label: "Робоча напруга (MIG)", value: "22V / 20.2V" },
+      { label: "Робоча напруга (MMA)", value: "25.5V / 24V" },
+      { label: "Вхідна напруга (U₁)", value: "220V" },
+      { label: "Максимальний струм (I₁max)", value: "26A" },
+      { label: "Струм запобіжника (I₁eff)", value: "20A" },
+      { label: "Живлення", value: "1 фаза, 220 В ±15 %, 50/60 Гц" },
+      { label: "Захист", value: "IP21S" },
+      { label: "Клас ізоляції", value: "F" },
+    ],
   },
-  { label: "Робоча напруга (MIG)", value: "22V / 20.2V" },
-  { label: "Робоча напруга (MMA)", value: "25.5V / 24V" },
-  { label: "Вхідна напруга (U₁)", value: "220V" },
-  { label: "Максимальний струм (I₁max)", value: "26A" },
-  { label: "Струм запобіжника (I₁eff)", value: "20A" },
-  { label: "Живлення", value: "1 фаза, 220 В ±15 %, 50/60 Гц" },
-  { label: "Захист", value: "IP21S" },
-  { label: "Клас ізоляції", value: "F" }
-]
-  },
-  { 
-  name: 'Подавач зварювального дроту',
-  id: 3,
-  price: '2250',
-  img: [
-    './assets/img/products/wireHolder-1.jpg',
-    './assets/img/products/wireHolder-2.jpg',
-    './assets/img/products/wireHolder-1.jpg'
-  ],
-  power: '230',
-  efficiency: '80',
-  electrodeDiameterMax: '5',
-  shortDescription: `
+  {
+    name: "Подавач зварювального дроту",
+    id: 3,
+    price: "2250",
+    img: [
+      "./assets/img/products/wireHolder-1.jpg",
+      "./assets/img/products/wireHolder-2.jpg",
+      "./assets/img/products/wireHolder-1.jpg",
+    ],
+    power: "230",
+    efficiency: "80",
+    electrodeDiameterMax: "5",
+    shortDescription: `
 Максимальний робочий струм: 100 А<br>
 Робоча напруга: 230 В (1 фаза)<br>
 Призначення: подача зварювального дроту<br>
     `,
-  fullDescription: `
+    fullDescription: `
 <b>Подавач зварювального дроту</b> — допоміжне обладнання для стабільної подачі зварювального дроту при роботі зі зварювальними апаратами MIG/MAG.<br><br>
 Має міцний корпус, просту конструкцію та зручне підключення. Підходить для побутового та професійного використання.<br><br>
 <p><b>В комплекті:</b></p>
@@ -177,31 +196,31 @@ export const products = [
   <li>Інструкція - 1 шт.</li>
 </ul>
   `,
-  parameters: [
-    { label: "Модель", value: "Wire Feeder 1" },
-    { label: "Призначення", value: "Подача зварювального дроту" },
-    { label: "Живлення", value: "230 В" },
-    { label: "Клас захисту", value: "IP21" }
-  ]
-},
-{ 
-  name: 'Плазморіз інверторний Nortex CUT-80 (80А)',
-  id: 4,
-  price: '2490',
-  img: [
-    './assets/img/products/cut-80-1.jpg',
-    './assets/img/products/cut-80-2.jpg',
-    './assets/img/products/cut-80-3.jpg'
-  ],
-  power: '230',
-  efficiency: '80',
-  electrodeDiameterMax: '5',
-  shortDescription: `
+    parameters: [
+      { label: "Модель", value: "Wire Feeder 1" },
+      { label: "Призначення", value: "Подача зварювального дроту" },
+      { label: "Живлення", value: "230 В" },
+      { label: "Клас захисту", value: "IP21" },
+    ],
+  },
+  {
+    name: "Плазморіз інверторний Nortex CUT-80 (80А)",
+    id: 4,
+    price: "2490",
+    img: [
+      "./assets/img/products/cut-80-1.jpg",
+      "./assets/img/products/cut-80-2.jpg",
+      "./assets/img/products/cut-80-3.jpg",
+    ],
+    power: "230",
+    efficiency: "80",
+    electrodeDiameterMax: "5",
+    shortDescription: `
 Максимальний струм різання: 80 А<br>
 Робоча напруга: 230 В (1 фаза)<br>
 Товщина різу: до 20 мм<br>
     `,
-  fullDescription: `
+    fullDescription: `
 <b>Nortex CUT-80</b> — інверторний плазморіз для точного та швидкого різання металу.<br><br>
 Працює з різними типами металів: сталь, нержавійка, алюміній, мідь.<br>
 Має простий інтерфейс і систему захисту від перевантаження.<br><br>
@@ -212,32 +231,33 @@ export const products = [
   <li>Інструкція - 1 шт.</li>
 </ul>
   `,
-  parameters: [
-    { label: "Модель", value: "CUT-80" },
-    { label: "Максимальний струм", value: "80А" },
-    { label: "Товщина різу", value: "до 20 мм" },
-    { label: "Живлення", value: "230 В" }
-  ]
-},
+    parameters: [
+      { label: "Модель", value: "CUT-80" },
+      { label: "Максимальний струм", value: "80А" },
+      { label: "Товщина різу", value: "до 20 мм" },
+      { label: "Живлення", value: "230 В" },
+    ],
+  },
 
-{ name: 'TIG-200P AC/DC зварювальний апарат ',
-  id: 5,
-  price: '4320',
-  img: [
-    './assets/img/products/tig200p-1.jpg',
-    './assets/img/products/tig200p-2.jpg',
-    './assets/img/products/tig200p-3.jpg',
-    './assets/img/products/tig200p-4.jpg',
-  ],
-  power: '220',
-  efficiency: '83',
-  electrodeDiameterMax: '—',
-  shortDescription: `
+  {
+    name: "TIG-200P AC/DC зварювальний апарат ",
+    id: 5,
+    price: "4320",
+    img: [
+      "./assets/img/products/tig200p-1.jpg",
+      "./assets/img/products/tig200p-2.jpg",
+      "./assets/img/products/tig200p-3.jpg",
+      "./assets/img/products/tig200p-4.jpg",
+    ],
+    power: "220",
+    efficiency: "83",
+    electrodeDiameterMax: "—",
+    shortDescription: `
 Максимальний робочий струм: 200 А<br>
 Робоча напруга: 220 В (1 фаза)<br>
 Тип зварювання: AC/DC TIG, AC/DC Pulse TIG, MMA<br>
   `,
-  fullDescription: `
+    fullDescription: `
 <b>TIG-200P AC/DC</b> — це інверторний аргонодуговий зварювальний апарат, 
 призначений для AC/DC TIG, AC/DC імпульсного TIG та MMA-зварювання. 
 Підходить як для професійного використання, так і для побутових потреб. 
@@ -276,26 +296,24 @@ export const products = [
   <li>Пальник TIG — 1 шт.</li>
   <li>Інструкція з експлуатації — 1 шт.</li>
 </ul>`,
-  parameters: [
-    { label: "Модель", value: "TIG-200P AC/DC" },
-    { label: "Тип зварювання", value: "AC/DC TIG, AC/DC Pulse TIG, MMA" },
-    { label: "Діапазон зварювального струму", value: "10–200A" },
-    { label: "Діапазон імпульсного струму", value: "10–200A" },
-    { label: "Частота імпульсу", value: "0.5–100 Гц" },
-    { label: "Частота AC", value: "20–150 Гц" },
-    { label: "Ширина очищення (AC)", value: "25%–75%" },
-    { label: "Час наростання струму", value: "0.1–5 с" },
-    { label: "Час спаду струму", value: "0.1–5 с" },
-    { label: "Робочий цикл (ПВ)", value: "40%" },
-    { label: "Живлення", value: "220В / 50–60 Гц (1 фаза)" },
-    { label: "Напруга холостого ходу", value: "56В" },
-    { label: "ККД", value: "83%" },
-    { label: "Клас захисту", value: "IP21S" },
-    { label: "Ізоляція", value: "F" },
-    { label: "Габарити", value: "440×200×350 мм" },
-    { label: "Вага", value: "14 кг" }
-  ]
-}
-
-  
+    parameters: [
+      { label: "Модель", value: "TIG-200P AC/DC" },
+      { label: "Тип зварювання", value: "AC/DC TIG, AC/DC Pulse TIG, MMA" },
+      { label: "Діапазон зварювального струму", value: "10–200A" },
+      { label: "Діапазон імпульсного струму", value: "10–200A" },
+      { label: "Частота імпульсу", value: "0.5–100 Гц" },
+      { label: "Частота AC", value: "20–150 Гц" },
+      { label: "Ширина очищення (AC)", value: "25%–75%" },
+      { label: "Час наростання струму", value: "0.1–5 с" },
+      { label: "Час спаду струму", value: "0.1–5 с" },
+      { label: "Робочий цикл (ПВ)", value: "40%" },
+      { label: "Живлення", value: "220В / 50–60 Гц (1 фаза)" },
+      { label: "Напруга холостого ходу", value: "56В" },
+      { label: "ККД", value: "83%" },
+      { label: "Клас захисту", value: "IP21S" },
+      { label: "Ізоляція", value: "F" },
+      { label: "Габарити", value: "440×200×350 мм" },
+      { label: "Вага", value: "14 кг" },
+    ],
+  },
 ];

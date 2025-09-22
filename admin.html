@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nortex</title>
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/product.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/modal.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/checkout.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/admin.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="app">
+      <main>
+        <section class="admin-section">
+          <div class="admin-title">
+            <h1>Nortex admin panel</h1>
+          </div>
+
+          <div class="admin-wrap">
+            <div class="admin-menu">
+              <div class="admin-menu-title">MENU</div>
+              <div class="admin-menu-item">Profile</div>
+              <div class="admin-menu-item" onclick="printProd()">Products</div>
+              <div class="admin-menu-item">Design</div>
+            </div>
+            <div class="admin-panel">
+              <div class="admin-panel-products">
+                <div class="products-actions">
+                  <div class="products-action-add"></div>
+                  <div class="products-action-update"></div>
+                  <div class="products-actoin-remove"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div id="footer" class="footer-content">
+          <div class="footer-logo">
+            <img src="./assets/img/nortex-logo-white.svg" />
+          </div>
+          <div class="footer-assortment">
+            <h4>Асортимент</h4>
+            <p class="footer-text-white">Зварювальний апарат D-01е</p>
+            <p class="footer-text-white">Зварювальний апарат D-210w</p>
+            <p class="footer-text-white">Зварювальний апарат D-212</p>
+          </div>
+          <div class="footer-info">
+            <h4>Інформація</h4>
+            <p class="footer-text-white">Контакти</p>
+            <p class="footer-text-white">Про нас</p>
+          </div>
+          <div class="footer-contacts">
+            <h4>Контакти</h4>
+            <p class="footer-text-white">nortex@gmail.com</p>
+            <p class="footer-text-white">+4 000 00 00 00</p>
+            <p class="footer-text-white">+4 000 00 00 00</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="./scripts/index.js"></script>
+    <script>
+      // async function printProd() {
+      //   const res = await fetch("/api/products/")
+      //   const products=await res.json();
+      //   console.log(products);
+      // }
+
+      async function printProd() {
+        const res = await fetch("/api/load/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: "Сварочник",
+            power: "2000Вт",
+            efficiency: "85%",
+            electrodeDiameterMax: "4мм",
+            code: "PRD001",
+            fullDescription: "Полное описание продукта",
+            shortDescription: "Краткое описание",
+            price: 1000.0,
+            type: "electronics",
+            images: ["/cdn/uploads/uuid1.png", "/cdn/uploads/uuid2.jpg"],
+            parameters: [
+              { label: "Мощность", value: "2000Вт" },
+              { label: "Вес", value: "15кг" },
+            ],
+          }),
+        });
+        const products = await res.json();
+        console.log(products);
+      }
+    </script>
+  </body>
+</html>
