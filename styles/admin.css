@@ -21,6 +21,8 @@ main {
 }
 
 .admin-title h1 {
+  font-weight: 500;
+  font-size: 28px;
   margin-top: 0;
   /* color:var(--color-light-surface); */
 }
@@ -45,12 +47,14 @@ main {
 }
 
 .admin-menu-title {
+  
   /* font-weight: 500; */
   font-size: 18px;
   padding: 20px 40px;
 }
 
 .admin-menu-item {
+  
   font-size: 18px;
   cursor: pointer;
   padding: 20px 50px;
@@ -62,3 +66,36 @@ main {
   background-color: var(--color-light-surface-dwn);
 }
 
+.admin-panel-wrap{
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  padding:3rem;
+}
+
+.admin-panel-products {
+  width:100%;
+  display:flex;
+  flex-direction: column;
+}
+
+.products-edit {
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  gap:1.25rem;
+  padding:1.25rem;  
+}
+
+.products-edit-add,
+.products-edit-update,
+.products-edit-remove {
+  height:12rem;
+  max-width: 22rem;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  border: 1px solid var(--color-light-surface-dwn);
+  align-items: center;
+  justify-content: center;
+}
