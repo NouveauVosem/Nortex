@@ -135,36 +135,36 @@
     <script type="module" src="./scripts/index.js"></script>
     <script type="module" src="./scripts/admin.js"></script>
     <script>
-      // async function printProd() {
-      //   const res = await fetch("/api/products/")
-      //   const products=await res.json();
-      //   console.log(products);
-      // }
-
       async function printProd() {
-        const res = await fetch("/api/load/", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: "Сварочник",
-            power: "2000Вт",
-            efficiency: "85%",
-            electrodeDiameterMax: "4мм",
-            code: "PRD001",
-            fullDescription: "Полное описание продукта",
-            shortDescription: "Краткое описание",
-            price: 1000.0,
-            type: "electronics",
-            images: ["/cdn/uploads/uuid1.png", "/cdn/uploads/uuid2.jpg"],
-            parameters: [
-              { label: "Мощность", value: "2000Вт" },
-              { label: "Вес", value: "15кг" },
-            ],
-          }),
-        });
-        const products = await res.json();
+        const res = await fetch("/api/products/")
+        const products=await res.json();
         console.log(products);
       }
+
+      // async function printProd() {
+      //   const res = await fetch("/api/load/", {
+      //     method: "POST",
+      //     headers: { "Content-Type": "application/json" },
+      //     body: JSON.stringify({
+      //       name: "Сварочник",
+      //       power: "2000Вт",
+      //       efficiency: "85%",
+      //       electrodeDiameterMax: "4мм",
+      //       code: "PRD001",
+      //       fullDescription: "Полное описание продукта",
+      //       shortDescription: "Краткое описание",
+      //       price: 1000.0,
+      //       type: "electronics",
+      //       images: ["/cdn/uploads/uuid1.png", "/cdn/uploads/uuid2.jpg"],
+      //       parameters: [
+      //         { label: "Мощность", value: "2000Вт" },
+      //         { label: "Вес", value: "15кг" },
+      //       ],
+      //     }),
+      //   });
+      //   const products = await res.json();
+      //   console.log(products);
+      // }
     </script>
   </body>
 </html>
