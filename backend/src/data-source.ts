@@ -15,7 +15,6 @@ const dataSource = new DataSource({
   synchronize: true,
   logging: true,
   entities: [ProductC, ProductCImage, ProductCParametr],
- extra: { charset: "UTF8" }
 })
 
 export default dataSource
