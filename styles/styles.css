@@ -6,7 +6,8 @@
 
 :root {
   --color-primary: #DC4B22;  
-  --color-secondary: #90b913; 
+  --color-secondary: #90b913;
+  --color-blue: #007BFF;
   --color-accent: #ff4D00;    
   --color-midgrey: #666;
   --color-border: #ccc;

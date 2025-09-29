@@ -22,12 +22,14 @@
     <div id="app">
       <main>
         <section class="admin-section">
-          <div class="admin-title">
+          <!-- <div class="admin-title">
             <h1>Nortex dashboard</h1>
-          </div>
+          </div> -->
 
           <div class="admin-wrap">
             <div class="admin-menu">
+              
+              <div class="admin-menu-title">Nortex Dashboard</div>
               <div class="admin-menu-title">MENU</div>
               <div class="admin-menu-item">Profile</div>
               <div class="admin-menu-item" onclick="printProd()">Products</div>
@@ -35,11 +37,90 @@
             </div>
             <div class="admin-panel-wrap">
               <div class="admin-panel-products">
-                <div class="panel-title">Products</div>
+                <div class="panel-title">PRODUCTS</div>
                 <div class="products-edit">
-                  <div class="products-edit-add">Add</div>
-                  <div class="products-edit-update">Edit</div>
-                  <div class="products-edit-remove">Delete</div>
+                  <div id="products-edit-add" class="products-edit-add">
+                    <img
+                      class="products-edit-img"
+                      src="./assets/icons/icon-add-note.svg"
+                    />Add
+                  </div>
+                  <div id="products-edit-update" class="products-edit-update">
+                    <img
+                      class="products-edit-img"
+                      src="./assets/icons/icon-edit-pencil.svg"
+                    />
+                    Edit
+                  </div>
+                  <div class="products-edit-remove">
+                    <img
+                      class="products-edit-img"
+                      src="./assets/icons/icon-remove.svg"
+                    />Delete
+                  </div>
+                </div>
+                <div id="products-edit-panel">
+                  <form id="productForm">
+                    <h2>Add Product</h2>
+
+                    <input type="text" name="name" placeholder="Name" />
+                    <input type="text" name="type" placeholder="Type" />
+
+                    <div class="row">
+                      <input type="number" name="id" placeholder="ID" />
+                      <input type="text" name="code" placeholder="Code" />
+                    </div>
+
+                    <input type="text" name="price" placeholder="Price" />
+                    <input
+                      type="text"
+                      name="inStock"
+                      placeholder="Stock quantity"
+                    />
+                    <input
+                      type="text"
+                      name="alsoBuyId"
+                      placeholder="AlsoBuy IDs (comma-separated)"
+                    />
+                    <input
+                      type="text"
+                      name="img"
+                      placeholder="Image URLs (comma-separated)"
+                    />
+
+                    <div class="row">
+                      <input type="text" name="power" placeholder="Power" />
+                      <input
+                        type="text"
+                        name="efficiency"
+                        placeholder="Efficiency"
+                      />
+                      <input
+                        type="text"
+                        name="electrodeDiameterMax"
+                        placeholder="Max Electrode Diameter"
+                      />
+                    </div>
+
+                    <textarea
+                      class="admin-area-input"
+                      name="shortDescription"
+                      placeholder="Short Description (HTML)"
+                      rows="4"
+                    ></textarea>
+                    <textarea
+                      class="admin-area-input"
+                      name="fullDescription"
+                      placeholder="Full Description (HTML)"
+                      rows="6"
+                    ></textarea>
+
+                    <h3>Parameters</h3>
+                    <div id="parameters"></div>
+                    <button type="button" id="addParam">+ Add Parameter</button>
+
+                    <button type="submit">Save Product</button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -48,31 +129,11 @@
       </main>
 
       <footer>
-        <div id="footer" class="footer-content">
-          <div class="footer-logo">
-            <img src="./assets/img/nortex-logo-white.svg" />
-          </div>
-          <div class="footer-assortment">
-            <h4>Асортимент</h4>
-            <p class="footer-text-white">Зварювальний апарат D-01е</p>
-            <p class="footer-text-white">Зварювальний апарат D-210w</p>
-            <p class="footer-text-white">Зварювальний апарат D-212</p>
-          </div>
-          <div class="footer-info">
-            <h4>Інформація</h4>
-            <p class="footer-text-white">Контакти</p>
-            <p class="footer-text-white">Про нас</p>
-          </div>
-          <div class="footer-contacts">
-            <h4>Контакти</h4>
-            <p class="footer-text-white">nortex@gmail.com</p>
-            <p class="footer-text-white">+4 000 00 00 00</p>
-            <p class="footer-text-white">+4 000 00 00 00</p>
-          </div>
-        </div>
+        
       </footer>
     </div>
     <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/admin.js"></script>
     <script>
       // async function printProd() {
       //   const res = await fetch("/api/products/")
