@@ -1,0 +1,172 @@
+.contacts-section {
+  max-width:1280px;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content:center ;
+}
+
+.contacts-title {
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.contacts-place-title {
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #F8F7FC;
+  
+  margin: 20px 0;
+}
+
+.contacts-wrap {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.contacts-map {
+  max-width: 615px;
+  width:100%;
+}
+
+.contacts-map iframe {
+  max-width:615px;
+  width:100%;
+}
+
+.contacts-list {
+  width:50%;
+  margin-right:20px;
+}
+
+.contacts-row {
+  display:flex;
+  gap:20px;
+  margin-bottom:20px;
+}
+
+.contacts-adress {
+  width:50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* border-radius: 10px; */
+  border: 1px solid #F0F0F0;
+  padding:10px 0;
+  padding-right:10px;
+}
+
+.contacts-adress-top {
+  display:flex;
+  justify-content: start;
+  align-items: center;
+  /* padding: 10px; */
+}
+
+.contacts-adress-image {
+  /* width:40px;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; */
+  margin-left:40px;
+
+}
+
+.contacts-adress-title {
+  margin-left:20px;
+}
+
+.contacts-adress-title p {
+  font-weight: 400;
+  font-size:22px;
+  margin:10px 0;
+}
+
+.contacts-adress-bottom {
+  margin-left:40px;
+}
+
+.contacts-tel {
+  width:100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* border-radius: 10px; */
+  border: 1px solid #F0F0F0;
+  gap:20px;
+  padding:10px 0;
+}
+
+.contacts-adress-bottom-wrap {
+  display:flex;
+  flex-direction: row;
+  /* padding-left:40px; */
+}
+
+.contacts-adress-bottom-column {
+  padding-left:40px;
+}
+
+.contacts-mail-top {
+  display:flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.contacts-mail-title {
+  margin-left:20px;
+}
+
+.contacts-mail-bottom {
+  margin-left:40px;
+}
+
+/* планшеты */
+@media (max-width: 1279px) {
+  .contacts-section {
+  max-width:900px;
+  }
+  .contacts-row {
+    flex-direction: column;
+  }
+
+  .contacts-adress {
+    width:100%;
+  }
+
+  .contacts-map {
+    max-width:50%;
+  }
+
+  .iframe {
+    max-width:200px;
+  }
+
+  .contacts-adress-bottom-wrap {
+    flex-direction: column;
+  }
+}
+
+/* планшеты 2 */
+@media (max-width: 950px) {
+  .contacts-section {
+  max-width:600px;
+  padding: 0 20px;
+  }
+
+  .contacts-wrap {
+    flex-direction: column;
+  }
+
+  .contacts-list, .contacts-map {
+    max-width:100%;
+    width:100%;
+  }
+
+  .contacts-map {
+    order:-1;
+    margin-bottom:16px;
+  }
+} 
