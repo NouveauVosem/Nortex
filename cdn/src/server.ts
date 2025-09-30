@@ -6,29 +6,37 @@ import path from 'node:path'
 import crypto from 'node:crypto'
 import util from 'node:util'
 import { pipeline } from 'stream'
+import rateLimit from '@fastify/rate-limit'
 
 const pump = util.promisify(pipeline)
 const app = Fastify({ logger: true })
 
-// Папка для загруженных файлов
 const UPLOAD_DIR = path.resolve('./src/uploads')
 if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true })
 
-// Раздача статики через /cdn
+
+
+app.register(rateLimit, {
+  max: 100, 
+  timeWindow: '1 minute'
+})
+
 app.register(dispatchStatic, {
   root: UPLOAD_DIR,
   prefix: '/cdn/uploads/',
   decorateReply: false
 })
 
-// Multipart для загрузки файлов
-app.register(multipart)
+app.register(multipart, {
+  limits: {
+    fileSize: 5 * 1024 * 1024,
+    files: 5,
+  }
+})
 
-// Разрешённые типы
 const allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']
 
-// Загрузка файлов
-app.post('/upload', async (req, reply) => {
+app.post('/cdn/upload', async (req, reply) => {
   const parts = req.parts()
   const uploadedFiles: string[] = []
 
@@ -49,7 +57,4 @@ app.post('/upload', async (req, reply) => {
   return { message: 'Files uploaded', files: uploadedFiles }
 })
 
-app.listen({ port: 4000 }, (err, address) => {
-  if (err) throw err
-  console.log(`CDN server listening at ${address}`)
-})
+app.listen({ port: 4000, host: '127.0.0.1' })

@@ -4,13 +4,13 @@ import ProductCController from "../controllers/ProductC.controller"
 const router = Router()
 
 // Создать один продукт
-router.post("/load", ProductCController.addProduct)
+router.post("/add", ProductCController.addProduct)
 
 // Создать несколько продуктов
-router.post("/many", ProductCController.addManyProducts)
+router.post("/addMany", ProductCController.addManyProducts)
 
 // Получить все продукты
-router.get("/products", ProductCController.getProducts)
+router.get("/", ProductCController.getProducts)
 
 // Получить продукт по ID
 router.get("/:id", ProductCController.getProductById)
