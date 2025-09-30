@@ -10,12 +10,12 @@ router.post("/add", ProductCController.addProduct)
 router.post("/addMany", ProductCController.addManyProducts)
 
 // Получить все продукты
-router.get("/", ProductCController.getProducts)
+router.get("/products", ProductCController.getProducts)
 
 // Получить продукт по ID
-router.get("/:id", ProductCController.getProductById)
+router.get("/prodcuts/:id", ProductCController.getProductById)
 
 // Удалить продукт по ID
-router.delete("/:id", ProductCController.deleteProduct)
+router.delete("/prodcuts/:id", ProductCController.deleteProduct)
 
 export default router

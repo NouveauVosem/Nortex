@@ -21,8 +21,8 @@ const apiLimiter = rateLimit({
 app.use(express.json())
 app.use(helmet())
 
-app.use('/products', apiLimiter)
-app.use('/products', productRouter) 
+app.use('/', apiLimiter)
+app.use('/', productRouter) 
 
 /* Error handling for non-existing routes */
 app.use((req, res) => {
