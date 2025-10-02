@@ -66,9 +66,6 @@
         await pump(part.file, fs.createWriteStream(filepath));
         uploadedFiles.push(`/cdn/uploads/${filename}`);
       }
-      if(uploadedFiles.length === 1) {
-        return { message: 'File uploaded', file: uploadedFiles[0] };
-      }
 
       return { message: 'Files uploaded', files: uploadedFiles };
     } catch (err) {
