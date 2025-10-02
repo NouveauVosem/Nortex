@@ -35,7 +35,7 @@ export function Home() {
       uploadedUrls.push(...result.files);
     }
 
-    productData.img = uploadedUrls;
+    productData.images = uploadedUrls;
     console.log("Uploaded URLs:", uploadedUrls);
     
 
