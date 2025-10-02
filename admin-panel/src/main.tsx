@@ -4,9 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { routes } from './routes';
 import './scss/index.scss';
 
-const router = createBrowserRouter(routes, {
-  basename: '/admin',
-});
+const router = createBrowserRouter(routes); 
 
 createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
