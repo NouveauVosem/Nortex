@@ -41,7 +41,7 @@ export function Home() {
 
     console.log("Final product data:", productData);
 
-    await fetch("/api/products", {
+    await fetch("/api/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(productData),
