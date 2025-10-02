@@ -7,11 +7,11 @@ export const routes = [
     element: <DefaultLayout />,
     children: [
       {
-        path: '/',
+        path: '',
         element: <Home />,
       },
       {
-        path: '/about',
+        path: 'about',
         element: <div>About</div>
       }
     ]
