@@ -5,7 +5,7 @@ import { routes } from './routes';
 import './scss/index.scss';
 
 const router = createBrowserRouter(routes, {
-  basename: '/admin', // <-- здесь указываем префикс
+  basename: '/admin',
 });
 
 createRoot(document.getElementById('root')!).render(

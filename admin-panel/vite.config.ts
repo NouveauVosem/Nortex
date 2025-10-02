@@ -5,12 +5,12 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/admin/',
   plugins: [react()],
-  server: {
-   proxy: {
-      '/cdn': {
-        target: 'http://localhost:4000',
-        changeOrigin: true,
-      },
-      },  
-  },
+  // server: {
+  //  proxy: {
+  //     '/cdn': {
+  //       target: 'http://localhost:4000',
+  //       changeOrigin: true,
+  //     },
+  //     },  
+  // },
 })

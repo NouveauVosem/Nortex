@@ -1,5 +1,5 @@
-import {Home} from "./pages/Home/Home"
-import DefaultLayout from "./layouts/DefaultLayout"
+import { Home } from "./pages/Home/Home";
+import DefaultLayout from "./layouts/DefaultLayout";
 
 export const routes = [
   {
@@ -7,14 +7,13 @@ export const routes = [
     element: <DefaultLayout />,
     children: [
       {
-        path: '/',
+        path: '', 
         element: <Home />,
       },
       {
-        path: '/profile',
-        element: <div>Profile</div>
-      }
-    ]
-    
+        path: 'profile',
+        element: <div>Profile</div>,
+      },
+    ],
   },
-]
+];
