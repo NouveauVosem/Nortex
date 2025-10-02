@@ -25,7 +25,7 @@ export function Home() {
       const uploadFormData = new FormData();
       uploadFormData.append("file", file);
 
-      const res = await fetch("http://localhost:4000/cdn/upload", {
+      const res = await fetch("/cdn/upload", {
         method: "POST",
         body: uploadFormData,
       });
